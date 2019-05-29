@@ -9,7 +9,7 @@ var usuarioSchema = mongoose.Schema({
     pessoas: [
         {
         type: mongoose.Schema.Types.ObjectId,
-        ref: "usuario"
+        ref: "Pessoa"
         }
     ]
 });

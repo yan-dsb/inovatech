@@ -15,8 +15,8 @@ app.use(methodOverride("_method"));
 
 //models
 var Produto = require("./models/produto");
-var Pessoa = require("./models/pessoa");
 var Usuario = require("./models/usuario");
+var Pessoa = require("./models/pessoa");
 
 //seedDB();
 
@@ -39,12 +39,25 @@ var Usuario = require("./models/usuario");
 app.get('/', (req, res) => {
     res.send("home page");
 });
+
 app.get('/produtos', (req, res) => {
     Produto.find({}, (err, produtos)=>{
         if (err) {
             console.log(err);      
         } else {
             res.render("index", {produtos:produtos});
+        }
+    });
+});
+
+app.get('/usuarios', (req, res) => {
+    Usuario.find({}).populate("pessoas").exec((err, usuarios)=>{
+        if (err) {
+            console.log(err);      
+        } else {
+            console.log(usuarios);
+            
+            res.render("usuarios", {usuarios:usuarios});
         }
     });
 });
