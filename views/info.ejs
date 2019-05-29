@@ -1,0 +1,7 @@
+<p><%= produto.nome%></p>
+<img src="<%= produto.imagemURL%>">
+<p><%= produto.peso%></p>
+<p><%= produto.pontos%></p>
+<form method="POST" action="/produtos/<%= produto._id%>?_method=DELETE">
+    <button>Delete</button>
+</form>

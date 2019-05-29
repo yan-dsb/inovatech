@@ -1,0 +1,30 @@
+<%  include partials/header%>
+<form action="/usuarios" method="post">
+    <div>
+        <label>Nome:</label>
+        <input type="text" name="pessoa[pesnome]" value="">
+    </div>
+    <div>
+        <label>CPF:</label>
+        <input type="text" name="pessoa[pescpf]">
+    </div>
+    <div>
+        <label>Email:</label>
+        <input type="text" name="usuario[usulogin]">
+    </div>
+    <div>
+        <label>Senha:</label>
+        <input type="password" name="usuario[ususenha]">
+    </div>
+    <div>
+        <label>Telefone:</label>
+        <input type="text" name="pessoa[pestelefone]">
+    </div>
+    <div>
+       <input type="submit" value="Submit">
+    </div>
+
+</form>
+    
+    
+<%  include partials/footer%>

@@ -1,0 +1,15 @@
+<% include partials/header%>
+
+    <div class="container">
+        <% produtos.forEach(produto => {%>
+        <ul class="list-group" style="width: 20%">
+            <li  class="list-group-item">Nome: <%= produto.nome%></li>
+            <li  class="list-group-item" ><img class="img-thumbnail" src="<%= produto.imagemURL%>"></li>
+            <li  class="list-group-item">Peso: <%= produto.peso%>KG</li>
+            <li  class="list-group-item">Pontos: <%= produto.pontos%></li>
+            <a href="/produtos/<%= produto._id%>">Mais informações</a> 
+        </ul>
+        <%}); %>
+    </div>
+    
+<% include partials/footer%>
