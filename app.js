@@ -114,7 +114,7 @@ app.delete('/produtos/:id', (req, res) => {
             console.log(err);
             
         } else {
-            res.redirect("produtos/produtos");
+            res.redirect("/produtos");
         }
     });
 });
@@ -127,7 +127,7 @@ app.post('/produtos', (req, res) => {
             console.log(err);
             
         } else {
-            res.redirect("produtos/produtos");
+            res.redirect("/produtos");
         }
     });
 });
@@ -183,6 +183,9 @@ app.get('/comprovantes', (req, res) => {
         }
     });
 });
+
+
+
 app.post('/balanca', (req, res) => {
     Balanca.create(req.body.balanca,(err, balanca)=>{
         if (err) {
@@ -193,16 +196,32 @@ app.post('/balanca', (req, res) => {
                 if (err) {
                     
                 } else {
-                    var usuariosFC = Object.assign([req.body.cliente, usuarioFunc]);
-                    balanca.usuarios.push(usuariosFC);
-                    balanca.produtos.push(req.body.produtos);
-                    balanca.save();
-                    res.redirect("");
+                    Usuario.create(req.body.cliente, usuarioFunc, (err, usuarioCF)=>{
+                        if (err) {
+                            
+                        } else {
+                            balanca.usuarios.push(usuarioCF);
+                            balanca.save();                            
+                        }
+                    });
                 }
             });
-            
+          Produto.create(req.body.produto, (err, produtos)=>{
+            if (err) {
+                
+            } else {
+                balanca.produtos.push(produtos)
+                balanca.save();  
+            }
+          });
+
+          
         }
     });
+});
+
+app.post('/balanca/gerarpontos', (req, res) => {
+    
 });
 
 app.get('*', (req, res) => {
