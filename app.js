@@ -14,6 +14,7 @@ app.use(express.static("public"));
 app.use(methodOverride("_method"));
 
 //models
+var Balanca = require("./models/balanca");
 var Produto = require("./models/produto");
 var Usuario = require("./models/usuario");
 var Pessoa = require("./models/pessoa");
@@ -45,7 +46,7 @@ app.get('/produtos', (req, res) => {
         if (err) {
             console.log(err);      
         } else {
-            res.render("index", {produtos:produtos});
+            res.render("produtos/produtos", {produtos:produtos});
         }
     });
 });
@@ -57,17 +58,44 @@ app.get('/usuarios', (req, res) => {
         } else {
             console.log(usuarios);
             
-            res.render("usuarios", {usuarios:usuarios});
+            res.render("usuarios/usuarios", {usuarios:usuarios});
         }
     });
 });
 
 app.get('/produtos/new', (req, res) => {
-   res.render("new"); 
+   res.render("produtos/new"); 
 });
 
 app.get('/usuarios/new', (req, res) => {
-    res.render("newUsuarios"); 
+    res.render("usuarios/new"); 
+ });
+
+app.get('/balanca', (req, res) => {
+    res.render("balanca/search");
+});
+
+app.get('/balanca/search', (req, res) => {
+
+    Usuario.findOne({usulogin : req.query.login }).populate("pessoas").exec((err, usuarioC)=>{
+        if (err) {
+            
+        } else {
+            console.log(usuarioC);
+            
+            res.render("balanca/balanca", {usuario: usuarioC}); 
+        }
+    });
+});
+ app.get('/usuarios/:id/comprovantes', (req, res) => {
+    Usuario.findById(req.params.id).populate("pessoas").exec((err, usuario)=>{
+        if (err) {
+            
+        } else {
+            res.render("usuarios/comprovantes", {usuario: usuario}); 
+        }
+    });
+    
  });
 
 app.get('/produtos/:id', (req, res) => {
@@ -76,7 +104,7 @@ app.get('/produtos/:id', (req, res) => {
             console.log(err);
             
         } else {
-            res.render("info", {produto: achouProduto})
+            res.render("produtos/info", {produto: achouProduto})
         }
     });
 });
@@ -86,7 +114,7 @@ app.delete('/produtos/:id', (req, res) => {
             console.log(err);
             
         } else {
-            res.redirect("/produtos");
+            res.redirect("produtos/produtos");
         }
     });
 });
@@ -99,7 +127,7 @@ app.post('/produtos', (req, res) => {
             console.log(err);
             
         } else {
-            res.redirect("/produtos");
+            res.redirect("produtos/produtos");
         }
     });
 });
@@ -120,7 +148,8 @@ app.post('/usuarios', (req, res) => {
                 } else {
                     usuario.pessoas.push(pessoa);
                     usuario.save();
-                    console.log("Salvo com sucesso!");
+                    res.redirect("usuarios/usuarios");
+                    
                     
                 }
             });
@@ -128,6 +157,57 @@ app.post('/usuarios', (req, res) => {
     });
 });
 
+
+//rota nao funcionando, ainda não temos tela de gerar comprovante
+app.get('/comprovantes', (req, res) => {
+    Usuario.findOne({usulogin: "k@gmail"}, (err, usuario)=>{
+        if (err) {
+            
+        } else {
+            var data = {
+                comvalordesconto: 0.10,
+                compontos: 200,
+                datavalidade: "29/06/2019"
+            }
+            usuario.comprovantes.push(data);
+            usuario.save((err, usu)=>{
+                if (err) {
+                    console.log(err);
+                    
+                } else {
+                    console.log(usu);
+                    res.redirect("usuarios/comprovantes");
+                    
+                }
+            });
+        }
+    });
+});
+app.post('/balanca', (req, res) => {
+    Balanca.create(req.body.balanca,(err, balanca)=>{
+        if (err) {
+            
+        } else {
+            var usuFunc = req.body.log;
+            Usuario.findOne({usulogin: usuFunc}, (err, usuarioFunc)=>{
+                if (err) {
+                    
+                } else {
+                    var usuariosFC = Object.assign([req.body.cliente, usuarioFunc]);
+                    balanca.usuarios.push(usuariosFC);
+                    balanca.produtos.push(req.body.produtos);
+                    balanca.save();
+                    res.redirect("");
+                }
+            });
+            
+        }
+    });
+});
+
+app.get('*', (req, res) => {
+    res.send("404 NOT FOUND");
+});
 
 app.listen(3000, () => {
     console.log('App listening on port 3000!');
