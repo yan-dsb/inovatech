@@ -220,9 +220,6 @@ app.post('/balanca', (req, res) => {
     });
 });
 
-app.post('/balanca/gerarpontos', (req, res) => {
-    
-});
 
 app.get('*', (req, res) => {
     res.send("404 NOT FOUND");
