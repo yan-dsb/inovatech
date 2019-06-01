@@ -1,6 +1,4 @@
 
-
-
 <!DOCTYPE html>
 <html lang="en">
     <head>
@@ -11,5 +9,26 @@
         <link rel="stylesheet" href="stylesheets/main.css" type="text/css">
     </head>
     <body>
+    <div>
+        <h4>
+        <% if(!currentuser){ %>
+         <li><a href="/login"><span class="glyphicon glyphicon-log-in"  aria-hidden="true" ></span> Login</a></li>
+         <li><a href="/register"><i class="material-icons md-18"></i> Sign Up</a></li>
+        <% } else { %>
+        
+        <p><span class="glyphicon glyphicon-user icon-size"></span><%= currentuser.username%></p>
+        <%}%>
+
+    </div>
+    <div id="container" >
+
+    <% if(errorArr && errorArr.length > 0){ %>
+        <div class="alert alert-danger" role="alert"> <%= errorArr %> </div>
+    <% } %>
+    <% if(successArr && successArr.length > 0){ %>
+        <div class="alert alert-success" role="alert"> <%= successArr %> </div>
+    <% } %>
+    <!--</div>-->
+    </div>
 
     
