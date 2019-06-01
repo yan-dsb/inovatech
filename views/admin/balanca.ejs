@@ -1,7 +1,10 @@
 <% include ../partials/header%>
-<p><%=usuario.usulogin%></p>
+<p><%=usuario.username%></p>
 <%usuario.pessoas.forEach(pessoa=>{%>
     <p><%= pessoa.pescpf%></p>
     <p><%= pessoa.pesnome%></p>
 <%});%>
 <% include ../partials/footer%>
+<form method="POST" action="/balanca">
+    <input type="text" name="cliente" value="">
+</form>

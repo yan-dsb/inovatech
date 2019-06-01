@@ -15,8 +15,9 @@
          <li><a href="/login"><span class="glyphicon glyphicon-log-in"  aria-hidden="true" ></span> Login</a></li>
          <li><a href="/register"><i class="material-icons md-18"></i> Sign Up</a></li>
         <% } else { %>
-        
-        <p><span class="glyphicon glyphicon-user icon-size"></span><%= currentuser.username%></p>
+        <% currentuser.pessoas.forEach(pessoa => {%>
+        <p><span class="glyphicon glyphicon-user icon-size"></span><%= pessoa.pesnome%></p>
+        <%}); %>
         <%}%>
 
     </div>

@@ -48,10 +48,19 @@ passport.deserializeUser(Usuario.deserializeUser());
 // passar o usuario para todas views
 app.use(function(req , res , next)
 {
-  res.locals.currentuser = req.user;
+    Usuario.findById(req.user).populate("pessoas").exec((err, usuario)=>{
+        if (err) {
+            
+        } else {
+            
+            
+        }
+    
+  res.locals.currentuser = usuario;
   res.locals.errorArr = req.flash("errorArr");
   res.locals.successArr = req.flash("successArr");
   next(); // importante
+});
 });
 
 
