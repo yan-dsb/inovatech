@@ -1,11 +1,13 @@
-<% include partials/header  %>
+<% include ../partials/header  %>
 
 <% usuarios.forEach(usuario => {%>
     <p><%= usuario.usulogin%></p>
     <p><%= usuario.ususenha%></p>
     <p><%= usuario.usupontos%></p>
+    <a href="/usuarios/<%=usuario._id%>/comprovantes">Comprovante</a>
 <%}); %>
 
 
 
-<% include partials/header  %>
+
+<% include ../partials/footer  %>
