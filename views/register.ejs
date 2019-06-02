@@ -1,30 +1,41 @@
 <% include partials/header  %>
-<form action="/register" method="post">
-    <div>
-        <label>Nome:</label>
-        <input type="text" name="pessoa[pesnome]" value="">
-    </div>
-    <div>
-        <label>CPF:</label>
-        <input type="text" name="pessoa[pescpf]">
-    </div>
-    <div>
-        <label>Email:</label>
-        <input type="text" name="username">
-    </div>
-    <div>
-        <label>Senha:</label>
-        <input type="password" name="password">
-    </div>
-    <div>
-        <label>Telefone:</label>
-        <input type="text" name="pessoa[pestelefone]">
-    </div>
-    <div>
-       <input type="submit" value="Submit">
-    </div>
+        <div class="col-sm">
+            <div class="card" style="border-radius: 0;">
+                <div class="card-body">
+                    <form action="/register" method="post">
+                        <div class="d-flex justify-content-center">
+                            <img style="height: 70px" src="assets/plant.svg">
+                        </div>
+                        <div>
+                            <label style="margin-bottom: 0">Nome:</label>
+                            <input type="text" class="form-control" name="pessoa[pesnome]" value="">
+                        </div>
+                        <div>
+                            <label style="margin-bottom: 0">CPF:</label>
+                            <input type="text" class="form-control" name="pessoa[pescpf]">
+                        </div>
+                        <div>
+                            <label style="margin-bottom: 0">Email:</label>
+                            <input type="text" class="form-control" name="username">
+                        </div>
+                        <div>
+                            <label style="margin-bottom: 0">Senha:</label>
+                            <input type="password" class="form-control" name="password">
+                        </div>
+                        <div>
+                            <label style="margin-bottom: 0">Telefone:</label>
+                            <input type="text" class="form-control" name="pessoa[pestelefone]">
+                        </div>
+                        <div>
+                            <button type="submit" value="Submit" class="botao btn btn-block">CADASTRAR</button>
 
-</form>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
     
     
 <% include partials/footer  %>

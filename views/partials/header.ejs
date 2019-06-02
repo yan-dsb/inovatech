@@ -1,4 +1,3 @@
-
 <!DOCTYPE html>
 <html lang="en">
     <head>
@@ -9,18 +8,48 @@
         <link rel="stylesheet" href="stylesheets/main.css" type="text/css">
     </head>
     <body>
-    <div>
-        <h4>
+    <nav class="navbar navbar-expand-md fixed-top" style="background: -webkit-linear-gradient( -75deg, #5c8635 5%, rgba(58,73,89,1) 95%);">
+  <a class="navbar-brand" href="#">E-DISCARD</a>
+  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarsExampleDefault" aria-controls="navbarsExampleDefault" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+
+  <div class="collapse navbar-collapse" id="navbarsExampleDefault">
+    <ul class="navbar-nav mr-auto">
+      <li class="nav-item active">
+        <a class="nav-link" href="/">Home</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="#">About</a>
+      </li>
+    </ul>
         <% if(!currentuser){ %>
-         <li><a href="/login"><span class="glyphicon glyphicon-log-in"  aria-hidden="true" ></span> Login</a></li>
-         <li><a href="/register"><i class="material-icons md-18"></i> Sign Up</a></li>
+        <ul class="navbar-nav mr-right">
+      <li class="nav-item active">
+        <a class="nav-link" href="/login">Login</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="/register">Cadastre-se</a>
+      </li>
+    </ul>
+      </div>
         <% } else { %>
         <% currentuser.pessoas.forEach(pessoa => {%>
-        <p><span class="glyphicon glyphicon-user icon-size"></span><%= pessoa.pesnome%></p>
+        <ul class="nav nav-pills">
+         <li class="nav-item dropdown">
+      <a class="nav-link dropdown-toggle" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false"><%= pessoa.pesnome%></a>
+      <div class="dropdown-menu">
+        <a class="dropdown-item" href="/perfil">Perfil</a>
+        <a class="dropdown-item" href="/logout">Logout</a>
+        </li>
+      </li>
+      </ul>
         <%}); %>
         <%}%>
+    
+  </div>
+</nav>
 
-    </div>
     <div id="container" >
 
     <% if(errorArr && errorArr.length > 0){ %>
@@ -31,5 +60,20 @@
     <% } %>
     <!--</div>-->
     </div>
-
-    
+    <div class="container">
+    <div class="row" style="margin-top: 50px;">
+        <div class="col-sm" style="margin-top: 40px;">
+            <div class="card" style="border: none">
+                <div class="card-body">
+                    <p style="font-size: 5rem; 
+                        font-weight: 700;
+                        font-family: Arial, Helvetica, sans-serif; 
+                        line-height: 1.2;
+                        background: -webkit-linear-gradient( -75deg, #5c8635 7%, rgba(58,73,89,1) 93%);
+                        background-clip: text;
+                        -webkit-text-fill-color: transparent;
+                        -webkit-background-clip: text;
+                        -webkit-text-fill-color: transparent;">TRANSFORMANDO LIXO ELETRÔNICO EM BENEFÍCIOS</p>
+                </div>
+            </div>
+        </div>

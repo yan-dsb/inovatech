@@ -18,7 +18,6 @@ router.get('/balanca', isLoggedIn, (req, res) => {
         if (err) {
             
         } else {
-            console.log(usuarioC);
             
             res.render("admin/balanca", {usuario: usuarioC}); 
         }
@@ -29,9 +28,7 @@ router.get('/usuarios', isLoggedIn, (req, res) => {
     Usuario.find({}).populate("pessoas").exec((err, usuarios)=>{
         if (err) {
             console.log(err);      
-        } else {
-            console.log(usuarios);
-            
+        } else {   
             res.render("admin/usuarios", {usuarios:usuarios});
         }
     });
