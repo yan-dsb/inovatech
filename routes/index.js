@@ -79,10 +79,11 @@ router.post('/register', (req, res) => {
                                 usuario.save();
                             }
                         });
-                        passport.authenticate("local")(req, res, function(){
-                            res.redirect("/");
-                        });
+                        
                     }
+                    passport.authenticate("local")(req, res, function(){
+                        res.redirect("/");
+                    });
                 });
             }
         }
