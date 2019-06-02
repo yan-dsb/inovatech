@@ -1,6 +1,7 @@
 //ROTAS INDEX
 var express = require("express");
 var router = express.Router();
+var Pessoa = require("../models/pessoa");
 var Usuario = require("../models/usuario");
 var passport = require("passport");
 
