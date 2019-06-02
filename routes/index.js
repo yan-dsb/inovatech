@@ -23,7 +23,7 @@ router.get('/register', (req, res) => {
 
 router.get('/logout', (req, res) => {
     req.logout();
-    res.redirect("/")
+    res.redirect("/login");
 });
 
 
