@@ -9,10 +9,6 @@ router.get('/', (req, res) => {
     res.render("home");
 });
 
-router.get('/adminSecret', isLoggedIn, (req, res) => {
-    res.render("admin/secret");
-});
-
 router.get('/login', (req, res) => {
     res.render("login");
 });

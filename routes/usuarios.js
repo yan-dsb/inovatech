@@ -5,7 +5,7 @@ var Usuario = require("../models/usuario");
 var Pessoa = require("../models/pessoa");
 
 
-router.get('/usuarios/:id', (req, res) => {
+router.get('/usuarios/:id', isLoggedIn, (req, res) => {
     Usuario.findById(req.params.id).populate("pessoas").exec((err, usuario)=>{
         if (err) {
             
@@ -15,7 +15,7 @@ router.get('/usuarios/:id', (req, res) => {
                 totalDesconto += comp.comvalordesconto;
             });
             
-            if (totalDesconto > 0.2) {
+            if (totalDesconto >= 0.2) {
                 console.log("Maximo de desconto por mes atingido");
                 res.redirect("/");
             } else {
@@ -27,6 +27,16 @@ router.get('/usuarios/:id', (req, res) => {
     
  });
 
+ function isLoggedIn(req, res, next){
+        
+        
+    if (req.isAuthenticated()) {
+        return next();
+    }else{
+        res.redirect("/");
+    }
+
+}
  router.post('/comprovantes', (req, res) => {
     Usuario.findOne({username: req.body.username}, (err, usuario)=>{
         if (err) {
@@ -38,11 +48,11 @@ router.get('/usuarios/:id', (req, res) => {
                 totalDesconto += comp.comvalordesconto;
             });
             
-            if (totalDesconto > 0.2) {
+            if (totalDesconto >= 0.2) {
                 console.log("Maximo de desconto por mes atingido");
                 res.redirect("/");
             } else {
-                var pontos = 0;
+            var pontos = 0;
             var pontosF = parseFloat(req.body.desconto);
             if (pontosF === 0.5) {
                 pontos += 100;

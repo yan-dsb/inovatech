@@ -4,6 +4,10 @@ var router = express.Router();
 var Usuario = require("../models/usuario");
 
 
+router.get('/adminSecret', isLoggedIn, (req, res) => {
+    res.render("admin/secret");
+});
+
 router.get('/admin/new', isLoggedIn, (req, res) => {
     res.render("admin/new"); 
  });
@@ -52,27 +56,30 @@ router.post('/balanca', (req, res) => {
             
         } else {
             var usuFunc = req.body.log;
-            Usuario.findOne({username: usuFunc}, (err, usuarioFunc)=>{
+            Usuario.findOne({username: req.body.cliente.username}, (err, usuario)=>{
                 if (err) {
                     
                 } else {
-                    Usuario.find(req.body.cliente, {$set:{c}},(err, usuarioUpdated)=>{
-                        if (err) {
-                            
-                        }else{
-
-                        }
-                    });
-                    Usuario.create(req.body.cliente, usuarioFunc, (err, usuarioCF)=>{
+                    usuario.usupontos += req.body.balanca.pontosTotal;
+                    usuario.save();
+                    Usuario.findOne({username: usuFunc}, (err, usuarioFunc)=>{
                         if (err) {
                             
                         } else {
-                            balanca.usuarios.push(usuarioCF);
-                            balanca.save();                            
+                            var usuariosBalanca = [usuario, usuarioFunc];
+                            Usuario.create(usuariosBalanca, (err, usuarioCF)=>{
+                                if (err) {
+                                    
+                                } else {
+                                    balanca.usuarios.push(usuarioCF);
+                                    balanca.save();                            
+                                }
+                            });
                         }
                     });
                 }
             });
+            
           Produto.create(req.body.produto, (err, produtos)=>{
             if (err) {
                 

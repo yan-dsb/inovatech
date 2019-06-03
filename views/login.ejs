@@ -1,5 +1,5 @@
 <% include partials/header%>
-        <div class="col-sm">
+        <div class="col-sm" style="padding-top: 10px">
                 <div class="card" style="border-radius: 0;">
                     <div class="card-body">
                         <form action="/login" method="post">
@@ -20,13 +20,31 @@
                             <div class="form-group">
                                 <input type="password" class="form-control" name="password" placeholder="Senha">
                             </div>
-                            <button class="btn botao btn-block" >ENTRAR</button>    
+                            <div class="form-group">
+                                <% if(errorArr && errorArr.length > 0){ %>
+                                <div class="alert alert-danger alert-dismissible fade show" role="alert">
+                                <strong>E-mail ou senha incorreta!</strong>
+                                <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                                <span aria-hidden="true">&times;</span>
+                                </button>
+                            </div>
+                                <% } %>
+                                <% if(successArr && successArr.length > 0){ %>
+                                <div class="alert alert-success" role="alert"> <%= successArr %> </div>
+                                <% } %>                      
+                            </div>
+                            <div class="form-group">
+                                <button class="btn botao btn-block" >ENTRAR</button> 
+                            </div>
+                               
                         </form>
+
                     </div>
                 </div>
+                
                 <div class="card" style="margin-top: 10px; border-radius: 0;">
                     <div class="card-body">
-                        <p style="margin-bottom: 0">Não tem uma conta? <a href="/register">Cadastre-se!</a></p>
+                        <p style="margin-bottom: 1px">Não tem uma conta? <a href="/register">Cadastre-se!</a></p>
                     </div>
                 </div>
             </div>
