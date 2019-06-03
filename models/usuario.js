@@ -3,8 +3,8 @@ var passportStratMongoose = require("passport-local-mongoose");
 
 
 var comprovanteSchema = mongoose.Schema({
-    comvalordesconto: Number,
-    compontos: Number,
+    comvalordesconto: {type: Number, default: 0},
+    compontos: {type: Number, default: 0},
     datavalidade: String
 });
 
@@ -13,7 +13,7 @@ var Comprovante = mongoose.model("Comprovante", comprovanteSchema);
 var usuarioSchema = mongoose.Schema({
     username: String,
     password: String,
-    usupontos: {type: Number, default: 400},
+    usupontos: {type: Number, default: 1000},
     inadmin: {type: Number, default: 0},
     default: 0,
     dthora: {type: Date, default:Date.now},

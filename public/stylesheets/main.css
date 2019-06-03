@@ -1,3 +1,9 @@
+body {
+    background: url(/imagens/second.jpg);
+    background-size: cover;
+    background-position: center; 
+}
+
 .botao{
     margin-top: 10px;
     background: -webkit-linear-gradient( -75deg, #5c8635 7%, rgba(58,73,89,1) 93%);
@@ -56,5 +62,19 @@
 
 .fa.fa-navicon {
     color:white;
+  }
+
+  .trans{
+    font-size: 4rem; 
+    font-weight: 700;
+    font-family: Arial, Helvetica, sans-serif; 
+    line-height: 1.2;
+    background: #52c234;  /* fallback for old browsers */
+    background: -webkit-linear-gradient(to right, #1a5e02, #52c234);  /* Chrome 10-25, Safari 5.1-6 */
+    background: linear-gradient(to right, #103a00, #52c234); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
   }
   

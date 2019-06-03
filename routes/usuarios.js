@@ -10,8 +10,18 @@ router.get('/usuarios/:id', (req, res) => {
         if (err) {
             
         } else {
+            var totalDesconto = 0;
+            usuario.comprovantes.forEach(comp => {
+                totalDesconto += comp.comvalordesconto;
+            });
             
-            res.render("usuarios/comprovantes", {usuario: usuario}); 
+            if (totalDesconto > 0.2) {
+                console.log("Maximo de desconto por mes atingido");
+                res.redirect("/");
+            } else {
+            
+            res.render("usuarios/comprovantes", {usuario: usuario});
+            } 
         }
     });
     
@@ -21,12 +31,40 @@ router.get('/usuarios/:id', (req, res) => {
     Usuario.findOne({username: req.body.username}, (err, usuario)=>{
         if (err) {
             
+            
         } else {
-            var data = {
-                comvalordesconto: 0.10,
-                compontos: 200,
-                datavalidade: "29/06/2019"
+            var totalDesconto = 0;
+            usuario.comprovantes.forEach(comp => {
+                totalDesconto += comp.comvalordesconto;
+            });
+            
+            if (totalDesconto > 0.2) {
+                console.log("Maximo de desconto por mes atingido");
+                res.redirect("/");
+            } else {
+                var pontos = 0;
+            var pontosF = parseFloat(req.body.desconto);
+            if (pontosF === 0.5) {
+                pontos += 100;
             }
+            if (pontosF === 0.1) {
+                pontos += 200;
+            }
+            if (pontosF === 0.15) {
+                pontos += 300;
+            }
+            if (pontosF === 0.2) {
+                pontos += 400;
+            }
+            console.log(pontos);
+            
+            var data = {
+                comvalordesconto:pontosF,
+                compontos: pontos,
+                datavalidade: "17/06/2019"
+            }
+            console.log(data);
+            
             usuario.comprovantes.push(data);
             usuario.usupontos -= data.compontos;
             console.log(usuario);
@@ -41,6 +79,8 @@ router.get('/usuarios/:id', (req, res) => {
                     
                 }
             });
+
+            }   
         }
     });
 });

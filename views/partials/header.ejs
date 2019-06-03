@@ -43,7 +43,20 @@
           <%}); %>
           <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdownMenuLink">
             <a href="/perfil" class="dropdown-item"><strong>Perfil</strong></a>
-            <a href="/usuarios/<%=currentuser._id%>" class="dropdown-item"><strong>Comprovantes</strong></a>
+        <%var total = 0;%>
+        <% currentuser.comprovantes.forEach(comp => {%>
+
+                  
+                  <% total += comp.comvalordesconto; %>
+                  <% console.log(total);
+                   %>
+        <%});%>
+        <%if (total > 0.2) {%>
+                    
+                  <%} else {%>
+                    <a href="/usuarios/<%=currentuser._id%>" class="dropdown-item"><strong>Gerar Desconto</strong></a>
+                  <%}%>
+            
             <a href="/logout" class="dropdown-item">
               <div class="dropdown-divider"></div>
               <strong>Logout</strong>
@@ -70,17 +83,9 @@
     <div class="container">
     <div class="row" style="margin-top: 50px;">
         <div class="col-sm" style="margin-top: 40px;">
-            <div class="card" style="border: none">
-                <div class="card-body">
-                    <p style="font-size: 5rem; 
-                        font-weight: 700;
-                        font-family: Arial, Helvetica, sans-serif; 
-                        line-height: 1.2;
-                        background: -webkit-linear-gradient( -75deg, #5c8635 7%, rgba(58,73,89,1) 93%);
-                        background-clip: text;
-                        -webkit-text-fill-color: transparent;
-                        -webkit-background-clip: text;
-                        -webkit-text-fill-color: transparent;">TRANSFORMANDO LIXO ELETRÔNICO EM BENEFÍCIOS</p>
+            <div style="border: none">
+                <div class="content">
+                    <h3 class="trans">TRANSFORMANDO LIXO ELETRÔNICO EM BENEFÍCIOS</h3>
                 </div>
             </div>
         </div>
