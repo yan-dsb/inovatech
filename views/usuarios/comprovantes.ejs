@@ -33,23 +33,26 @@
                             </div>
                             <div class="form-group">
                                 <p>Opções de desconto:</p>
-                                
-                                <%if (usuario.usupontos >= 100) {%>
-                                <% var desconto = 0.5; %>
+                            <% var totalValordesconto = 0; %>
+                            <% usuario.comprovantes.forEach(comp => {%>
+                                <% totalValordesconto += comp.comvalordesconto%>
+                            <%}); %>    
+                                <%if (usuario.usupontos >= 100 && totalValordesconto < 0.2) {%>
+                                <% var desconto = 0.05; %>
                                 <label>5%</label>
                                 <input type="radio" class="form-control" name="desconto" value="<%=desconto%>">
                                 <%}%>
-                                <%if (usuario.usupontos >= 200) {%>
+                                <%if (usuario.usupontos >= 200 && totalValordesconto <0.15) {%>
                                 <% var desconto = 0.1; %>
                                 <label>10%</label>
                                 <input type="radio" class="form-control" name="desconto" value="<%=desconto%>">
                                 <%}%>
-                                <%if (usuario.usupontos >= 300) {%>
+                                <%if (usuario.usupontos >=300 && totalValordesconto <0.1) {%>
                                 <% var desconto = 0.15; %>
                                 <label>15%</label>
                                 <input type="radio" class="form-control" name="desconto" value="<%=desconto%>">
                                 <%}%>
-                                <%if (usuario.usupontos >= 400) {%>
+                                <%if (usuario.usupontos >= 400 && totalValordesconto <0.05) {%>
                                 <% var desconto = 0.2; %>
                                 <label>20%</label>
                                 <input type="radio" class="form-control" name="desconto" value="<%=desconto%>">

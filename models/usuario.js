@@ -5,6 +5,7 @@ var passportStratMongoose = require("passport-local-mongoose");
 var comprovanteSchema = mongoose.Schema({
     comvalordesconto: {type: Number, default: 0},
     compontos: {type: Number, default: 0},
+    comURL: String,
     datavalidade: String
 });
 
@@ -25,11 +26,6 @@ var usuarioSchema = mongoose.Schema({
     ],
     comprovantes: [comprovanteSchema]
 });
-
-// usuarioSchema.methods.validatePassword = function(password) {
-//     const hash = crypto.pbkdf2Sync(password, this.salt, 10000, 512, 'sha512').toString('hex');
-//     return this.hash === hash;
-// };
 
 usuarioSchema.plugin(passportStratMongoose);  
 

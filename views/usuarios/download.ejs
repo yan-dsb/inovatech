@@ -1,0 +1,13 @@
+
+
+<% usuario.comprovantes.forEach((i,idx,comp) => {%>
+    <% if (idx === comp.length -1) {%>
+            <label><%= i.comvalordesconto %></label>
+                 <a href="/download/<%= i.comURL%>">Download</a>
+    <%} %>
+    
+<%}); %>
+
+
+
+     

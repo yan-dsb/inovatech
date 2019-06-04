@@ -51,12 +51,12 @@
                   <% console.log(total);
                    %>
         <%});%>
-        <%if (total >= 0.2) {%>
+        <%if (total >= 0.3) {%>
                     
                   <%} else {%>
                     <a href="/usuarios/<%=currentuser._id%>" class="dropdown-item"><strong>Gerar Desconto</strong></a>
                   <%}%>
-            
+            <a href="/comprovantes/<%=currentuser._id%>" class="dropdown-item"><strong>Comprovantes</strong></a>
             <a href="/logout" class="dropdown-item">
               <div class="dropdown-divider"></div>
               <strong>Logout</strong>
