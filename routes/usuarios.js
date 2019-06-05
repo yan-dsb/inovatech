@@ -5,7 +5,7 @@ var Usuario = require("../models/usuario");
 var Pessoa = require("../models/pessoa");
 var PDFDocument = require('pdfkit');
 var fs = require('fs');
-
+var QRCode = require('qrcode')
 
 router.get('/usuarios/:id', isLoggedIn, (req, res) => {
     Usuario.findById(req.params.id).populate("pessoas").exec((err, usuario)=>{
@@ -43,7 +43,16 @@ router.get('/usuarios/:id', isLoggedIn, (req, res) => {
         var dir = 'uploads/'+req.params.id;
         res.download(dir);
  });
- router.post('/comprovantes', (req, res) => {
+ router.post('/comprovantes',isLoggedIn, (req, res) => {
+    QRCode.toFile('uploads/filename.png', 'http://192.168.0.104:3000', {
+        color: {
+        dark: '#00F',  // Blue dots
+         light: '#0000' // Transparent background
+        }
+     }, function (err) {
+        if (err) throw err
+        console.log('done')
+     })
     Usuario.findOne({username: req.body.username}).populate("pessoas").exec((err, usuario)=>{
         if (err) {
             
@@ -60,8 +69,8 @@ router.get('/usuarios/:id', isLoggedIn, (req, res) => {
             
             var doc = new PDFDocument();
             var pdfURL = 'comprovante'+Date.now()+'.pdf';
-            
-            
+
+           
             var totalDesconto = 0;
             usuario.comprovantes.forEach(comp => {
                 totalDesconto += comp.comvalordesconto;
@@ -108,6 +117,12 @@ router.get('/usuarios/:id', isLoggedIn, (req, res) => {
             doc.text('Valor desconto: '+desc);
             doc.moveDown();
             doc.text('Pontos utilizados: '+pontos);
+            doc.moveDown();
+            doc.image('uploads/filename.png',{
+                fit: [200, 200],
+                align: 'center',
+                valign: 'center'
+             });
             doc.end();
 
             usuario.comprovantes.push(data);

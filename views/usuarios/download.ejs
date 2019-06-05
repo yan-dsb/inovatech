@@ -1,5 +1,6 @@
-
-
+<% include ../partials/header%>
+<div class="col-sm">
+<div class="card" style="border-radius: 0;">
 <% usuario.comprovantes.forEach((i,idx,comp) => {%>
     <% if (idx === comp.length -1) {%>
             <label><%= i.comvalordesconto %></label>
@@ -7,7 +8,11 @@
     <%} %>
     
 <%}); %>
+</div>        
+</div>
 
+
+<% include ../partials/footer%>
 
 
      
