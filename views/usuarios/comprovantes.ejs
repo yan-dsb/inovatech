@@ -1,19 +1,14 @@
 <% include ../partials/header%>
+<div class="container">
+    <div class="row">
         <div class="col-sm">
-                <div class="card" style="border-radius: 0;">
+                <div class="card">
                     <div class="card-body">
                         <form action="/comprovantes" method="post">
                             <div class="d-flex justify-content-center">
-                                <img style="height: 150px" src="../assets/plant.svg">
+                                <img class="card-img-top" src="../assets/plant.svg">
                             </div>
-                            <p class="text-center" style="font-size: 1.7rem; 
-                                font-weight: 600;
-                                font-family: Arial, Helvetica, sans-serif; 
-                                background: -webkit-linear-gradient( -75deg, #5c8635 5%, rgba(58,73,89,1) 95%);
-                                background-clip: text;
-                                -webkit-text-fill-color: transparent;
-                                -webkit-background-clip: text;
-                                -webkit-text-fill-color: transparent;">E-DISCARD</p>
+                            <p class="text-center trans">Gerar desconto</p>
                             <% usuario.pessoas.forEach(pessoa => {%>    
                             <div class="form-group">
                                 <label>Nome:</label>
@@ -28,11 +23,6 @@
                                 <input type="text" class="form-control" name="username" readonly value="<%= usuario.username%>">
                             </div>
                             <div class="form-group">
-                                <label>Pontos:</label>
-                                <input type="text" class="form-control" readonly value="<%= usuario.usupontos%>">
-                            </div>
-                            <div class="form-group">
-                                <p>Opções de desconto:</p>
                             <% var totalValordesconto = 0; %>
                             <% usuario.comprovantes.forEach(comp => {%>
                                 <% totalValordesconto += comp.comvalordesconto%>
@@ -56,7 +46,15 @@
                                 <% var desconto = 0.2; %>
                                 <label>20%</label>
                                 <input type="radio" class="form-control" name="desconto" value="<%=desconto%>">
-                                <%}%>       
+                                <%}%>
+                                <% if(totalValordesconto >= 0.2){ %>
+                                <div class="alert alert-danger alert-dismissible fade show" role="alert">
+                                <strong>Você atingiu o máximo de descontos gerados por mês.</strong>
+                                <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                                <span aria-hidden="true">&times;</span>
+                                </button>
+                                </div>
+                                <% } %>       
                             </div>
                             <%}); %>
                             <button class="btn botao btn-block">Gerar comprovante</button>    
@@ -66,5 +64,8 @@
             </div>
     </div>
 </div>
+    </div>
+</div>
+        
 
 <% include ../partials/footer%>

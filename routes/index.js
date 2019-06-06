@@ -16,7 +16,9 @@ router.get('/login', (req, res) => {
 router.get('/register', (req, res) => {
     res.render("register");
 });
-
+router.get('/perfil', isLoggedIn, (req, res) => {
+    res.render("perfil");
+});
 router.get('/logout', (req, res) => {
     req.logout();
     res.redirect("/login");
@@ -26,24 +28,34 @@ router.get('/logout', (req, res) => {
 function isLoggedIn(req, res, next){
         
         
-        if (req.isAuthenticated()&&req.user.inadmin===1) {
+        if (req.isAuthenticated()) {
             return next();
         }else{
             res.redirect("/");
         }
     
 }
+router.get('/sobre', (req, res) =>{
+    res.render("sobre");
+})
+router.get('/info', (req, res) =>{
+    res.render("info");
+})
+
 router.get('/login/success', (req, res) => {
     req.flash("successArr","Bem vindo!");
     res.redirect("/");
 });
-router.get('/login/successAdmin', (req, res) => {
-    req.flash("successArr","Bem vindo!");
-    res.redirect("/secret");
-});
+
 router.get('/login/failed', (req, res) => {
     req.flash("errorArr","Usuario ou senha incorreta!");
     res.redirect("/login");
+});
+
+
+router.get('/register/failed', (req, res) => {
+    req.flash("errorArr","Usuario ja existe!");
+    res.redirect("/register");
 });
 
 router.post('/register', (req, res) => {
@@ -55,8 +67,8 @@ router.post('/register', (req, res) => {
             
         } else {
             if (usuario) {
-
-                console.log({message: "user already exists"});
+                
+                res.redirect('/register/failed');
                 
             }else{
 

@@ -1,8 +1,12 @@
-body {
-    background: url(/imagens/second.jpg);
+ body {
+    background: #8e9eab;  /* fallback for old browsers */
+    background: -webkit-linear-gradient(to right, #eef2f3, #8e9eab);  /* Chrome 10-25, Safari 5.1-6 */
+    background: linear-gradient(to right, #eef2f3, #8e9eab); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+    
     background-size: cover;
-    background-position: center; 
-}
+    background-position: center;
+    font-family: 'Roboto', sans-serif;
+} 
 
 .botao{
     margin-top: 10px;
@@ -65,16 +69,29 @@ body {
   }
 
   .trans{
-    font-size: 4rem; 
-    font-weight: 700;
+    font-size: 1.7rem; 
+    font-weight: 600;
     font-family: Arial, Helvetica, sans-serif; 
-    line-height: 1.2;
-    background: #52c234;  /* fallback for old browsers */
-    background: -webkit-linear-gradient(to right, #1a5e02, #52c234);  /* Chrome 10-25, Safari 5.1-6 */
-    background: linear-gradient(to right, #103a00, #52c234); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+    background: -webkit-linear-gradient( -75deg, #5c8635 5%, rgba(58,73,89,1) 95%);
     background-clip: text;
     -webkit-text-fill-color: transparent;
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
+  }
+  .greentext{
+    background: -webkit-linear-gradient( -75deg, #5c8635 5%, rgba(58,73,89,1) 95%);
+  }
+  .card{
+      width: 20rem;
+      float: right; 
+  }
+  .col-sm{
+      padding-right: 20px;
+      padding-top: 70px;
+  }
+  
+  
+  .text-home{
+      text-align: justify;  
   }
   

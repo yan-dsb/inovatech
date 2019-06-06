@@ -1,19 +1,14 @@
 <% include partials/header%>
-        <div class="col-sm" style="padding-top: 10px">
-                <div class="card" style="border-radius: 0;">
+<div class="container">
+<div class = "row">
+    <div class="col-sm">
+                <div class="card">
                     <div class="card-body">
                         <form action="/login" method="post">
                             <div class="d-flex justify-content-center">
-                                <img style="height: 150px" src="assets/plant.svg">
+                                <img class="card-img-top" src="assets/plant.svg">
                             </div>
-                            <p class="text-center" style="font-size: 1.7rem; 
-                                font-weight: 600;
-                                font-family: Arial, Helvetica, sans-serif; 
-                                background: -webkit-linear-gradient( -75deg, #5c8635 5%, rgba(58,73,89,1) 95%);
-                                background-clip: text;
-                                -webkit-text-fill-color: transparent;
-                                -webkit-background-clip: text;
-                                -webkit-text-fill-color: transparent;">E-DISCARD</p>
+                            <p class="text-center trans">Login</p>
                             <div class="form-group">
                                 <input type="email" class="form-control" name="username" placeholder="E-mail">
                             </div>
@@ -40,14 +35,17 @@
                         </form>
 
                     </div>
-                </div>
-                
-                <div class="card" style="margin-top: 10px; border-radius: 0;">
                     <div class="card-body">
-                        <p style="margin-bottom: 1px">Não tem uma conta? <a href="/register">Cadastre-se!</a></p>
+                        <p class="card-text">Não tem uma conta? <a href="/register">Cadastre-se!</a></p>
                     </div>
                 </div>
+                
+               
             </div>
     </div>
 </div>
+</div>
+    
+</div>
+        
 <% include partials/footer%>

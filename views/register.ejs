@@ -1,41 +1,60 @@
 <% include partials/header  %>
+<div class="container">
+    <div class="row">
         <div class="col-sm">
-            <div class="card" style="border-radius: 0;">
+            <div class="card">
                 <div class="card-body">
                     <form action="/register" method="post">
                         <div class="d-flex justify-content-center">
-                            <img style="height: 70px" src="assets/plant.svg">
+                            <img class="card-img-top" src="assets/plant.svg">
+                            
                         </div>
-                        <div>
-                            <label style="margin-bottom: 0">Nome:</label>
-                            <input type="text" class="form-control" name="pessoa[pesnome]" value="">
+                        <p class="text-center trans">Informe seus dados</p>
+                        <div class="form-group">
+                            <label card-text>Nome:</label>
+                            <input type="text" class="form-control" name="pessoa[pesnome]">
                         </div>
-                        <div>
+                        <div class="form-group">
                             <label style="margin-bottom: 0">CPF:</label>
                             <input type="text" class="form-control" name="pessoa[pescpf]">
                         </div>
-                        <div>
-                            <label style="margin-bottom: 0">Email:</label>
+                        <div class="form-group">
+                            <label card-text>Email:</label>
                             <input type="email" class="form-control" name="username">
                         </div>
-                        <div>
-                            <label style="margin-bottom: 0">Senha:</label>
+                        <div class="form-group">
+                            <label card-text>Senha:</label>
                             <input type="password" class="form-control" name="password">
                         </div>
-                        <div>
-                            <label style="margin-bottom: 0">Telefone:</label>
+                        <div class="form-group">
+                            <label card-text>Telefone:</label>
                             <input type="text" class="form-control" name="pessoa[pestelefone]">
                         </div>
-                        <div>
+                            <div class="form-group">
+                                <% if(errorArr && errorArr.length > 0){ %>
+                                <div class="alert alert-danger alert-dismissible fade show" role="alert">
+                                <strong>Usuário já existe!</strong>
+                                <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                                <span aria-hidden="true">&times;</span>
+                                </button>
+                            </div>
+                                <% } %>
+                        <div class="form-group">
                             <button type="submit" value="Submit" class="botao btn btn-block">CADASTRAR</button>
-
                         </div>
+                        
                     </form>
                 </div>
+                <div class="card-body">
+                        <p class="card-text">Já tem uma conta? <a href="/login">Faça seu login!</a></p>
+                        </div>
             </div>
         </div>
     </div>
 </div>
+    </div>
+</div>
+        
     
     
 <% include partials/footer  %>

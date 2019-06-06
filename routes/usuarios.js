@@ -44,7 +44,7 @@ router.get('/usuarios/:id', isLoggedIn, (req, res) => {
         res.download(dir);
  });
  router.post('/comprovantes',isLoggedIn, (req, res) => {
-    QRCode.toFile('uploads/filename.png', 'http://192.168.0.104:3000', {
+    QRCode.toFile('uploads/qrcode.png', 'http://192.168.0.104:3000', {
         color: {
         dark: '#00F',  // Blue dots
          light: '#0000' // Transparent background
@@ -118,7 +118,7 @@ router.get('/usuarios/:id', isLoggedIn, (req, res) => {
             doc.moveDown();
             doc.text('Pontos utilizados: '+pontos);
             doc.moveDown();
-            doc.image('uploads/filename.png',{
+            doc.image('uploads/qrcode.png',{
                 fit: [200, 200],
                 align: 'center',
                 valign: 'center'
