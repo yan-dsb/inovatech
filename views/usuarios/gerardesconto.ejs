@@ -1,0 +1,71 @@
+<% include ../partials/header%>
+<div class="container">
+    <div class="row">
+        <div class="col-sm">
+                <div class="card">
+                    <div class="card-body">
+                        <form action="/gerardesconto" method="post">
+                            <div class="d-flex justify-content-center">
+                                <img class="card-img-top" src="../assets/plant.svg">
+                            </div>
+                            <p class="text-center trans">Gerar desconto</p>
+                            <% usuario.pessoas.forEach(pessoa => {%>    
+                            <div class="form-group">
+                                <label>Nome:</label>
+                                <input type="text" class="form-control" readonly value="<%=pessoa.pesnome%>">
+                            </div>
+                            <div class="form-group">
+                                <label>CPF:</label>
+                                <input type="text" class="form-control" readonly value="<%= pessoa.pescpf%>">
+                            </div>
+                            <div class="form-group">
+                                <label>E-mail:</label>
+                                <input type="text" class="form-control" name="username" readonly value="<%= usuario.username%>">
+                            </div>
+                            <div class="form-group">
+                            <% var totalValordesconto = 0; %>
+                            <% usuario.comprovantes.forEach(comp => {%>
+                                <% totalValordesconto += comp.comvalordesconto%>
+                            <%}); %>    
+                                <%if (usuario.usupontos >= 100 && totalValordesconto < 0.2) {%>
+                                <% var desconto = 0.05; %>
+                                <label>5%</label>
+                                <input type="radio" class="form-control" name="desconto" value="<%=desconto%>">
+                                <%}%>
+                                <%if (usuario.usupontos >= 200 && totalValordesconto <0.15) {%>
+                                <% var desconto = 0.1; %>
+                                <label>10%</label>
+                                <input type="radio" class="form-control" name="desconto" value="<%=desconto%>">
+                                <%}%>
+                                <%if (usuario.usupontos >=300 && totalValordesconto <0.1) {%>
+                                <% var desconto = 0.15; %>
+                                <label>15%</label>
+                                <input type="radio" class="form-control" name="desconto" value="<%=desconto%>">
+                                <%}%>
+                                <%if (usuario.usupontos >= 400 && totalValordesconto <0.05) {%>
+                                <% var desconto = 0.2; %>
+                                <label>20%</label>
+                                <input type="radio" class="form-control" name="desconto" value="<%=desconto%>">
+                                <%}%>
+                                <% if(totalValordesconto >= 0.2){ %>
+                                <div class="alert alert-danger alert-dismissible fade show" role="alert">
+                                <strong>Você atingiu o máximo de descontos gerados por mês.</strong>
+                                <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                                <span aria-hidden="true">&times;</span>
+                                </button>
+                                </div>
+                                <% } %>       
+                            </div>
+                            <%}); %>
+                            <button class="btn botao btn-block">Gerar comprovante</button>    
+                        </form>
+                    </div>
+                </div>
+            </div>
+    </div>
+</div>
+    </div>
+</div>
+        
+
+<% include ../partials/footer%>

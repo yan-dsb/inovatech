@@ -9,12 +9,12 @@ var QRCode = require('qrcode')
 var moment = require('moment')
 var tz = require('moment')
 
-router.get('/usuarios/:id', isLoggedIn, (req, res) => {
+router.get('/gerardesconto/:id', isLoggedIn, (req, res) => {
     Usuario.findById(req.params.id).populate("pessoas").exec((err, usuario)=>{
         if (err) {
             
         } else {
-            res.render("usuarios/comprovantes", {usuario: usuario});
+            res.render("usuarios/gerardesconto", {usuario: usuario});
         }
     });
     
@@ -36,7 +36,7 @@ router.get('/usuarios/:id', isLoggedIn, (req, res) => {
             
         } else {
             
-            res.render('usuarios/listaComprovantes', {usuario: usuario});
+            res.render('usuarios/comprovantes', {usuario: usuario});
         }
     });
  });
@@ -44,7 +44,7 @@ router.get('/usuarios/:id', isLoggedIn, (req, res) => {
         var dir = 'uploads/'+req.params.id;
         res.download(dir);
  });
- router.post('/comprovantes',isLoggedIn, (req, res) => {
+ router.post('/gerardesconto',isLoggedIn, (req, res) => {
     QRCode.toFile('uploads/qrcode.png', 'http://192.168.0.104:3000', {
         color: {
         dark: '#00F',  // Blue dots
