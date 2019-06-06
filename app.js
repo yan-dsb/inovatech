@@ -7,6 +7,7 @@ var methodOverride = require("method-override");
 var passport = require("passport");
 var localStrategy = require("passport-local");
 var flash = require("connect-flash");
+var moment = require('moment');
 
 //rotas 
 var produtosRotas = require("./routes/produtos");
@@ -17,9 +18,7 @@ var usuariosRotas = require("./routes/usuarios");
 mongoose.connect("mongodb://localhost/inovatech", {useNewUrlParser:true});
 
 //models
-var Balanca = require("./models/balanca");
 var Usuario = require("./models/usuario");
-var Pessoa = require("./models/pessoa");
 
 
 //use session and start a function
@@ -46,6 +45,7 @@ passport.deserializeUser(Usuario.deserializeUser());
 
 
 // passar o usuario para todas views
+app.locals.moment = moment;
 app.use(function(req , res , next)
 {
     Usuario.findById(req.user).populate("pessoas").exec((err, usuario)=>{

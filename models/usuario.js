@@ -6,7 +6,8 @@ var comprovanteSchema = mongoose.Schema({
     comvalordesconto: {type: Number, default: 0},
     compontos: {type: Number, default: 0},
     comURL: String,
-    datavalidade: String
+    datavalidade: String,
+    dataCriado: {type:Date, default:Date.now}
 });
 
 var Comprovante = mongoose.model("Comprovante", comprovanteSchema);
@@ -15,7 +16,7 @@ var usuarioSchema = mongoose.Schema({
     username: String,
     password: String,
     usupontos: {type: Number, default: 1000},
-    inadmin: {type: Number, default: 0},
+    inadmin: {type: Number, default: 1},
     default: 0,
     dthora: {type: Date, default:Date.now},
     pessoas: [

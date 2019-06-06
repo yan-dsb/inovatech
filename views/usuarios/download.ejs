@@ -2,18 +2,15 @@
 <div class="container">
     <div class="row">
         <div class="col-sm">
-            <div class="card">
-            <div class="car-body">
+        <h3>Comprovante pronto para download</h3>
+            <ul class="list-group list-group-flush">
                 <% usuario.comprovantes.forEach((i,idx,comp) => {%>
             <% if (idx === comp.length -1) {%>
-            <label><%= i.comvalordesconto %></label>
-                 <a href="/download/<%= i.comURL%>">Download</a>
+                 <li class="list-group-item"><a href="/download/<%= i.comURL%>">Download  </a>Gerado em: <strong><%= moment(i.dataCriado).format('LLL');  %></strong></li>
             <%} %>
     
             <%}); %>
-            </div>
-            
-</div>        
+     </ul>
 </div>
     </div>
 </div>

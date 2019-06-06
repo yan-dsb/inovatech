@@ -6,6 +6,8 @@ var Pessoa = require("../models/pessoa");
 var PDFDocument = require('pdfkit');
 var fs = require('fs');
 var QRCode = require('qrcode')
+var moment = require('moment')
+var tz = require('moment')
 
 router.get('/usuarios/:id', isLoggedIn, (req, res) => {
     Usuario.findById(req.params.id).populate("pessoas").exec((err, usuario)=>{
@@ -33,7 +35,6 @@ router.get('/usuarios/:id', isLoggedIn, (req, res) => {
         if (err) {
             
         } else {
-            console.log(usuario);
             
             res.render('usuarios/listaComprovantes', {usuario: usuario});
         }
@@ -98,11 +99,15 @@ router.get('/usuarios/:id', isLoggedIn, (req, res) => {
                 pontos += 400;
                 desc = "20%";
             }
+
+            var dataVal = moment().add('1', "month").format("LLL");
+            
+            
             var data = {
                 comvalordesconto:pontosF,
                 compontos: pontos,
                 comURL: pdfURL,
-                datavalidade: "17/06/2019"
+                datavalidade: dataVal
             }
 
             var dir = 'uploads/'+ pdfURL;   
@@ -117,6 +122,8 @@ router.get('/usuarios/:id', isLoggedIn, (req, res) => {
             doc.text('Valor desconto: '+desc);
             doc.moveDown();
             doc.text('Pontos utilizados: '+pontos);
+            doc.moveDown();
+            doc.text('Data de validade: '+dataVal);
             doc.moveDown();
             doc.image('uploads/qrcode.png',{
                 fit: [200, 200],
