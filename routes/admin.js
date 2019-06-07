@@ -2,7 +2,7 @@
 var express = require("express");
 var router = express.Router();
 var Usuario = require("../models/usuario");
-
+var Produto = require("../models/produto");
 
 router.get('/adminSecret', isLoggedIn, (req, res) => {
     res.render("admin/secret");
@@ -13,18 +13,39 @@ router.get('/admin/new', isLoggedIn, (req, res) => {
  });
 
 router.get('/search', isLoggedIn, (req, res) => {
-    res.render("admin/search");
+    Usuario.findOne({username : req.query.login }).populate("pessoas").exec((err, usuario)=>{
+        if (err) {
+            
+        } else {
+            Produto.find({}, (err, produto)=>{
+                if (err) {
+                    
+                } else {
+                    console.log(usuario);
+                    
+                    res.render("admin/balanca", {usuario: usuario, produto: produto},); 
+                }
+            });
+            
+        }       
+    });
 });
 
 router.get('/balanca', isLoggedIn, (req, res) => {
 
-    Usuario.findOne({username : req.query.login }).populate("pessoas").exec((err, usuarioC)=>{
+    Usuario.findOne({username : req.query.login }).populate("pessoas").exec((err, usuario)=>{
         if (err) {
             
         } else {
+            Produto.find({}, (err, produto)=>{
+                if (err) {
+                    
+                } else {
+                    res.render("admin/balanca", {usuario: usuario, produto: produto},); 
+                }
+            });
             
-            res.render("admin/balanca", {usuario: usuarioC}); 
-        }
+        }       
     });
 });
 

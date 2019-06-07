@@ -5,7 +5,8 @@
             <li  class="list-group-item">Nome: <%= produto.nome%></li>
             <li  class="list-group-item" ><img class="img-thumbnail" src="<%= produto.imagemURL%>"></li>
             <li  class="list-group-item">Peso: <%= produto.peso%>KG</li>
-            <a href="/produtos/<%= produto._id%>">Mais informações</a> 
+            <a href="/produtos/<%= produto._id%>">Mais informações</a>
+            <a href="/produtos/new">Cadastrar</a>  
         </ul>
         <%}); %>
     </div>

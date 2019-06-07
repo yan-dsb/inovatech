@@ -8,6 +8,7 @@
         <link rel="stylesheet" href="/stylesheets/main.css" type="text/css">
         <link href="https://fonts.googleapis.com/css?family=Roboto&display=swap" rel="stylesheet">
         <link rel="stylesheet" href="/stylesheets/perfil.css" type="text/css">
+        <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.5.0/css/all.css" integrity="sha384-B4dIYHKNBt8Bc12p+WXckhzcICo0wtJAoU8YZTY5qE0Id1GSseTk6S+L3BlXeVIU" crossorigin="anonymous">
     </head>
     <body>
     <nav class="navbar navbar-expand-md fixed-top navbar-dark greentext">
@@ -30,7 +31,7 @@
       <a href="/info" class="dropdown-item"><strong>Beneficios</strong></a>
     </div>
     </li>
-    </ul>
+    </ul> 
         <% if(!currentuser){ %>
         <ul class="navbar-nav mr-right">
       <li class="nav-item">
@@ -52,7 +53,8 @@
           <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdownMenuLink">
             <a href="/perfil" class="dropdown-item"><strong>Perfil</strong></a>
         <% if(currentuser.inadmin === 1){%>
-            <a href="/" class="dropdown-item"><strong>Gerar pontos</strong></a>
+            <a href="/balanca" class="dropdown-item"><strong>Gerar pontos</strong></a>
+            <a href="/produtos" class="dropdown-item"><strong>Produtos</strong></a>
         <%}%>    
         <%var total = 0;%>
         <% currentuser.comprovantes.forEach(comp => {%>
