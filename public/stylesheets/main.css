@@ -6,8 +6,14 @@
     background-size: cover;
     background-position: center;
     font-family: 'Roboto', sans-serif;
+    margin:0px !important;
+    padding: 0px !important;
 } 
 
+html{
+    margin:0px !important;
+    padding: 0px !important;
+ }
 .botao{
     margin-top: 10px;
     background: -webkit-linear-gradient( -75deg, #5c8635 7%, rgba(58,73,89,1) 93%);
@@ -94,5 +100,90 @@
   .text-home{
       text-align: justify;  
   }
-  
 
+.footback{
+    background-color: #5c8635;
+    margin-top: 5%;
+    padding-top: 2%
+}
+
+.cardhome{
+    margin-top:20px; 
+    margin-bottom:20px; 
+}
+
+.blockquote-footer{
+    color: blue;
+}
+
+.mb-0{
+    font-size: 40px;
+
+}
+
+.bkhome{
+    background: #5c8635;
+    width: 100%;
+}
+
+.card-img-top{
+    max-width: 350px;;
+}
+
+@media(max-width:480px){
+.cardres{
+    display: none;
+}
+}
+
+.slidelore{
+    background-size: 454px 618px;
+}
+
+
+.img-form{
+    -webkit-align-self: center;
+    -ms-flex-item-align: center;
+    align-self: center;
+    background-image: url(/imagens/first.jpg);
+    background-position: 0 0;
+    background-size: 454px 618px;
+    -webkit-flex-basis: 454px;
+    -ms-flex-preferred-size: 454px;
+    flex-basis: 454px;
+    height: 618px;
+    margin-left: -60px;
+    margin-right: 50px;
+    max-width: 800px;
+}
+
+.insta{
+        -webkit-box-align: stretch;
+        position: relative;
+        margin: 30px auto 0;
+        margin-top: 30px;
+        margin-right: auto;
+        margin-bottom: 0px;
+        margin-left: auto;
+        -webkit-box-orient: horizontal;
+        -webkit-box-direction: normal;
+        -webkit-flex-direction: row;
+        -ms-flex-direction: row;
+        flex-direction: row;
+        -webkit-box-flex: 1;
+        -webkit-flex-grow: 1;
+        -ms-flex-positive: 1;
+        flex-grow: 1;
+        -webkit-box-pack: center;
+        -webkit-justify-content: center;
+        -ms-flex-pack: center;
+        justify-content: center;
+        margin: 30px auto 0;
+        max-width: 935px;
+        padding-bottom: 44px;
+        width: 100%;
+}
+
+.cardt{
+    max-width: 350px;
+}

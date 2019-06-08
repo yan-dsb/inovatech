@@ -6,30 +6,39 @@
                 <div class="card-body">
                     <form action="/register" method="post">
                         <div class="d-flex justify-content-center">
-                            <img class="card-img-top" src="assets/plant.svg">
+                            <img class="card-img-top cardres" src="assets/plant.svg">
                             
                         </div>
-                        <p class="text-center trans">Informe seus dados</p>
-                        <div class="form-group">
-                            <label card-text>Nome:</label>
-                            <input type="text" class="form-control" name="pessoa[pesnome]">
+                        <p class="text-center trans">Cadastre-se para ganhar pontos!</p>
+                        
+                        <div class="input-group flex-nowrap">
+                            <input type="text" class="form-control" placeholder="Nome Completo" aria-label="Username" 
+                            name="pessoa[pesnome]" aria-describedby="addon-wrapping">
                         </div>
-                        <div class="form-group">
-                            <label style="margin-bottom: 0">CPF:</label>
-                            <input type="text" class="form-control" name="pessoa[pescpf]">
-                        </div>
-                        <div class="form-group">
-                            <label card-text>Email:</label>
-                            <input type="email" class="form-control" name="username">
-                        </div>
-                        <div class="form-group">
-                            <label card-text>Senha:</label>
-                            <input type="password" class="form-control" name="password">
-                        </div>
-                        <div class="form-group">
-                            <label card-text>Telefone:</label>
-                            <input type="text" class="form-control" name="pessoa[pestelefone]">
-                        </div>
+
+                        <div class="input-group flex-nowrap">
+                                <input type="text" class="form-control" placeholder="CPF" aria-label="Cpf" 
+                                name="pessoa[pescpf]" aria-describedby="addon-wrapping">
+                            </div>
+                       
+                        
+                        <div class="input-group flex-nowrap">
+                                <input type="email" class="form-control" placeholder="Email" aria-label="email" 
+                                name="username" aria-describedby="addon-wrapping">
+                            </div>
+
+                        <div class="input-group flex-nowrap">
+                                <input type="password" class="form-control" placeholder="Senha" aria-label="senha" 
+                                name="password" aria-describedby="addon-wrapping">
+                            </div>
+
+                        
+
+                        <div class="input-group flex-nowrap">
+                                <input type="text" class="form-control" placeholder="Telefone" aria-label="Telefone" 
+                                name="pessoa[pestelefone]" aria-describedby="addon-wrapping">
+                            </div>
+
                             <div class="form-group">
                                 <% if(errorArr && errorArr.length > 0){ %>
                                 <div class="alert alert-danger alert-dismissible fade show" role="alert">
@@ -54,7 +63,7 @@
 </div>
     </div>
 </div>
-        
+                        
     
     
 <% include partials/footer  %>
