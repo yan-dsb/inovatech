@@ -84,6 +84,31 @@ html{
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
   }
+
+  .transinfo{
+    font-size: 1.7rem; 
+    font-weight: 600;
+    font-family: Arial, Helvetica, sans-serif; 
+    background: black;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+  }
+
+  .translg{
+    font-size: 4.2rem; 
+    font-weight: 700;
+    font-family: Arial, Helvetica, sans-serif; 
+    background: -webkit-linear-gradient( -75deg, #5c8635 5%, rgba(58,73,89,1) 95%);
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    text-align: start;
+    margin-top: 100px;
+  }
+
   .greentext{
     background: -webkit-linear-gradient( -75deg, #5c8635 5%, rgba(58,73,89,1) 95%);
   }
@@ -94,6 +119,11 @@ html{
   .col-sm{
       padding-right: 20px;
       padding-top: 70px;
+      /*margin-right: 20px;*/
+  }
+
+  .mglogin{
+      margin-right: 20px;
   }
   
   
@@ -126,6 +156,18 @@ html{
     width: 100%;
 }
 
+.bktext{
+    background: #8e9eab;  /* fallback for old browsers */
+    background: -webkit-linear-gradient(to right, #eef2f3, #8e9eab);  /* Chrome 10-25, Safari 5.1-6 */
+    background: linear-gradient(to right, #eef2f3, #8e9eab); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+}
+
+.textfont{
+    font-family: "Times New Roman", Times, serif;
+    font-size: 1.5rem;
+}
+
+
 .card-img-top{
     max-width: 350px;;
 }
@@ -136,54 +178,64 @@ html{
 }
 }
 
+@media(max-width:780px){
+    .cardres2{
+        font-size: 2.5rem; 
+        font-weight: 700;
+        font-family: Arial, Helvetica, sans-serif; 
+        background: -webkit-linear-gradient( -75deg, #5c8635 5%, rgba(58,73,89,1) 95%);
+        background-clip: text;
+        -webkit-text-fill-color: transparent;
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+        text-align: start;
+        margin-top: 140px;
+    }
+    .resphome{
+        margin-right: 50px;
+    }
+
+    }
+
+
+@media(max-width:720px){
+    .resp{
+        margin-right: 15px; 
+    }
+    .resptext{
+        display: none;
+    }
+
+}
+
+
 .slidelore{
     background-size: 454px 618px;
 }
 
 
 .img-form{
-    -webkit-align-self: center;
-    -ms-flex-item-align: center;
-    align-self: center;
+    
     background-image: url(/imagens/first.jpg);
-    background-position: 0 0;
-    background-size: 454px 618px;
-    -webkit-flex-basis: 454px;
-    -ms-flex-preferred-size: 454px;
-    flex-basis: 454px;
-    height: 618px;
-    margin-left: -60px;
-    margin-right: 50px;
-    max-width: 800px;
+    
+    
 }
 
-.insta{
-        -webkit-box-align: stretch;
-        position: relative;
-        margin: 30px auto 0;
-        margin-top: 30px;
-        margin-right: auto;
-        margin-bottom: 0px;
-        margin-left: auto;
-        -webkit-box-orient: horizontal;
-        -webkit-box-direction: normal;
-        -webkit-flex-direction: row;
-        -ms-flex-direction: row;
-        flex-direction: row;
-        -webkit-box-flex: 1;
-        -webkit-flex-grow: 1;
-        -ms-flex-positive: 1;
-        flex-grow: 1;
-        -webkit-box-pack: center;
-        -webkit-justify-content: center;
-        -ms-flex-pack: center;
-        justify-content: center;
-        margin: 30px auto 0;
-        max-width: 935px;
-        padding-bottom: 44px;
-        width: 100%;
+.cardtop{
+    height: 200px;
 }
 
 .cardt{
     max-width: 350px;
+}
+
+.col-11 {
+    -ms-flex: 0 0 91.666667%;
+    flex: 0 0 91.666667%;
+    max-width: 100%;
+    margin-left: 20px; 
+}
+
+.col-sm-8{
+    margin-top: 140px;
 }
