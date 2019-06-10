@@ -2,70 +2,83 @@
 <div class="container">
     <div class="row">
         <div class="col-sm">
-                <div class="card">
-                    <div class="card-body">
+                    <div class="card-body shadow-lg p-3 mb-5 bg-white rounded">
                         <form action="/gerardesconto" method="post">
+                            
                             <div class="d-flex justify-content-center">
-                                <img class="card-img-top" src="../assets/plant.svg">
-                            </div>
-                            <p class="text-center trans">Gerar desconto</p>
+                                    <img class="card-img-top cardres cardtop" src="/imagens/ediscard.svg">
+                                </div>
+                                <p class="text-center trans">Gerar desconto</p>
+                                <hr>
+                            <div class="form-row">
                             <% usuario.pessoas.forEach(pessoa => {%>    
-                            <div class="form-group">
-                                <label>Nome:</label>
+                            <div class="form-group col-md-6">
+                                <label>Nome: <%=pessoa.pesnome%></label>
                                 <input type="text" class="form-control" readonly value="<%=pessoa.pesnome%>">
                             </div>
-                            <div class="form-group">
+                            <div class="form-group col-md-6">
                                 <label>CPF:</label>
                                 <input type="text" class="form-control" readonly value="<%= pessoa.pescpf%>">
                             </div>
-                            <div class="form-group">
+                            <div class="form-group col-md-12">
                                 <label>E-mail:</label>
                                 <input type="text" class="form-control" name="username" readonly value="<%= usuario.username%>">
                             </div>
-                            <div class="form-group">
-                            <% var totalValordesconto = 0; %>
+                            </div>
+                                <hr>
+                            <div class="form-row">
+                            <div class="custom-control custom-radio form-group">
+                                    <p>Descontos Disponíveis</p>
+                                <% var totalValordesconto = 0; %>
                             <% usuario.comprovantes.forEach(comp => {%>
                                 <% totalValordesconto += comp.comvalordesconto%>
                             <%}); %>    
                                 <%if (usuario.usupontos >= 100 && totalValordesconto < 0.2) {%>
                                 <% var desconto = 0.05; %>
-                                <label>5%</label>
-                                <input type="radio" class="form-control" name="desconto" value="<%=desconto%>">
+                                <input type="radio" class="custom-control-input" id="defaultGroupExample1" name="desconto" value="<%=desconto%>">
+                                <label class="custom-control-label" for="defaultGroupExample1">5%</label>
                                 <%}%>
                                 <%if (usuario.usupontos >= 200 && totalValordesconto <0.15) {%>
                                 <% var desconto = 0.1; %>
-                                <label>10%</label>
-                                <input type="radio" class="form-control" name="desconto" value="<%=desconto%>">
+                                <input type="radio" class="custom-control-input" id="defaultGroupExample1" name="desconto" value="<%=desconto%>">
+                                <label class="custom-control-label" for="defaultGroupExample1">10%</label>
                                 <%}%>
                                 <%if (usuario.usupontos >=300 && totalValordesconto <0.1) {%>
                                 <% var desconto = 0.15; %>
-                                <label>15%</label>
-                                <input type="radio" class="form-control" name="desconto" value="<%=desconto%>">
+                                <input type="radio" class="custom-control-input" id="defaultGroupExample1" name="desconto" value="<%=desconto%>">
+                                <label class="custom-control-label" for="defaultGroupExample1">15%</label>
                                 <%}%>
                                 <%if (usuario.usupontos >= 400 && totalValordesconto <0.05) {%>
                                 <% var desconto = 0.2; %>
-                                <label>20%</label>
-                                <input type="radio" class="form-control" name="desconto" value="<%=desconto%>">
+                                <input type="radio" class="custom-control-input" id="defaultGroupExample1" name="desconto" value="<%=desconto%>">
+                                <label class="custom-control-label" for="defaultGroupExample1">20%</label>
                                 <%}%>
+                                <hr>
+                                <div class="form-group">
+                                        <h5>Dicas</h5>
+                                        <ul>
+                                            <li>Por mês só possível retirar 20% de Desconto</li>
+                                            <li>A cada 5% de desconto é debitado da sua conta 100 pontos!</li>
+                                        </ul>
+                                    </div>
                                 <% if(totalValordesconto >= 0.2){ %>
                                 <div class="alert alert-danger alert-dismissible fade show" role="alert">
                                 <strong>Você atingiu o máximo de descontos gerados por mês.</strong>
-                                <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                                <button type="button" class="close" for="button" data-dismiss="alert" aria-label="Close">
                                 <span aria-hidden="true">&times;</span>
                                 </button>
                                 </div>
                                 <% } %>       
                             </div>
                             <%}); %>
-                            <button class="btn botao btn-block">Gerar comprovante</button>    
+                            
+                            <button class="btn botao btn-block" id="button">Gerar comprovante</button>    
+                            </div>
                         </form>
                     </div>
-                </div>
+                    </div>
             </div>
     </div>
-</div>
-    </div>
-</div>
         
 
 <% include ../partials/footer%>

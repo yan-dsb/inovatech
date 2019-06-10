@@ -20,6 +20,7 @@ router.get('/gerardesconto/:id', isLoggedIn, (req, res) => {
     
  });
 
+ 
  function isLoggedIn(req, res, next){
         
         
@@ -30,7 +31,21 @@ router.get('/gerardesconto/:id', isLoggedIn, (req, res) => {
     }
 
 }
- router.get('/comprovantes/:id', isLoggedIn, (req,res)=>{
+
+router.get('/perfil/:id', isLoggedIn, (req, res) => {
+    Usuario.findById(req.params.id).populate("pessoas").exec((err, usuario)=>{
+        if (err) {
+            
+            console.log(err);
+        } else {
+            res.render("usuarios/perfil", {usuario: usuario});
+        }
+    });
+    
+});
+
+
+router.get('/comprovantes/:id', isLoggedIn, (req,res)=>{
     Usuario.findOne({_id: req.params.id},(err, usuario)=>{
         if (err) {
             
@@ -44,6 +59,8 @@ router.get('/gerardesconto/:id', isLoggedIn, (req, res) => {
         var dir = 'uploads/'+req.params.id;
         res.download(dir);
  });
+
+
  router.post('/gerardesconto',isLoggedIn, (req, res) => {
     QRCode.toFile('uploads/qrcode.png', 'http://192.168.0.104:3000', {
         color: {

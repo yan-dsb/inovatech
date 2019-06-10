@@ -23,15 +23,13 @@
       <li class="nav-item">
         <a class="nav-link" href="/"><strong>Home</strong></a>
       </li>
-      <li class="nav-item dropdown hidden-md-down">
-          <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-            <strong>Sobre</strong>
-        </a>
-      <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdownMenuLink">
-      <a href="/sobre" class="dropdown-item"><strong>Empresa</strong></a>
-      <a href="/info" class="dropdown-item"><strong>Beneficios</strong></a>
-    </div>
-    </li>
+      <li class="nav-item">
+        <a class="nav-link" href="/sobre"><strong>Quem Somos?</strong></a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="/info"><strong>Benefícios</strong></a>
+      </li>
+      
     </ul> 
         <% if(!currentuser){ %>
         <ul class="navbar-nav mr-right">
@@ -50,9 +48,10 @@
           <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
             <strong><%= pessoa.pesnome.toUpperCase()%></strong>
           </a>
+          
           <%}); %>
           <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdownMenuLink">
-            <a href="/perfil" class="dropdown-item"><strong>Perfil</strong></a>
+            <a href="/perfil/<%=currentuser._id%>" class="dropdown-item"><strong>Perfil</strong></a>
         <% if(currentuser.inadmin === 1){%>
             <a href="/balanca" class="dropdown-item"><strong>Gerar pontos</strong></a>
             <a href="/produtos" class="dropdown-item"><strong>Produtos</strong></a>
