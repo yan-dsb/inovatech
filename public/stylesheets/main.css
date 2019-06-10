@@ -133,7 +133,7 @@ html{
   }
 
 .footback{
-    background-color: #5c8635;
+    background: -webkit-linear-gradient( -75deg, #5c8635 5%, rgba(58,73,89,1) 95%);
     margin-top: 5%;
     padding-top: 2%
 }
@@ -173,9 +173,29 @@ html{
     max-width: 350px;;
 }
 
+@media(min-width: 320px) and (max-width: 370px){
+    .cel375{
+    margin-bottom: 10px;
+    }
+    .cel320{
+        margin-left: 20px;
+        width: 100%;
+    }
+
+}
+
 @media(max-width:480px){
 .cardres{
     display: none;
+}
+.cel414{
+    margin-right: 10px;
+}
+}
+
+@media(min-width:940px){
+.desk{
+    margin-right:20px;
 }
 }
 
@@ -192,17 +212,13 @@ html{
         text-align: start;
         margin-top: 140px;
     }
-    .resphome{
-        margin-right: 50px;
-    }
+   
 
     }
 
 
 @media(max-width:720px){
-    .resp{
-        margin-right: 15px; 
-    }
+
     .resptext{
         display: none;
     }
