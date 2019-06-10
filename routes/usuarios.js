@@ -32,16 +32,8 @@ router.get('/gerardesconto/:id', isLoggedIn, (req, res) => {
 
 }
 
-router.get('/perfil/:id', isLoggedIn, (req, res) => {
-    Usuario.findById(req.params.id).populate("pessoas").exec((err, usuario)=>{
-        if (err) {
-            
-            console.log(err);
-        } else {
-            res.render("usuarios/perfil", {usuario: usuario});
-        }
-    });
-    
+router.get('/perfil', isLoggedIn, (req, res) => {
+        res.render("usuarios/perfil");
 });
 
 

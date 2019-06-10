@@ -48,12 +48,13 @@
          <ul class="navbar-nav ml-auto">
          <li class="nav-item dropdown hidden-md-down">
           <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-            <strong><%= pessoa.pesnome.toUpperCase()%></strong>
+            <strong><%= pessoa.pesnome.toUpperCase()%><span> <%= currentuser.usupontos%></span></strong>
+            
           </a>
           
           <%}); %>
           <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdownMenuLink">
-            <a href="/perfil/<%=currentuser._id%>" class="dropdown-item"><strong>Perfil</strong></a>
+            <a href="/perfil" class="dropdown-item"><strong>Perfil</strong></a>
         <% if(currentuser.inadmin === 1){%>
             <a href="/balanca" class="dropdown-item"><strong>Gerar pontos</strong></a>
             <a href="/produtos" class="dropdown-item"><strong>Produtos</strong></a>

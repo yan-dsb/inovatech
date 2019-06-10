@@ -2,7 +2,7 @@
     <div class="container">
         <div class="row ">
             <div class="col-sm">
-                <% usuario.pessoas.forEach(pessoa => {%> 
+                <% currentuser.pessoas.forEach(pessoa => {%> 
                     <!-- Modal -->
                     <div class="modal-dialog">
                         <div class="modal-content">
@@ -13,8 +13,8 @@
                                 </center>
                                 <br>
                                     <ul class="list-group list-group-flush">
-                                        <li class="list-group-item">Email: <%=usuario.username%></li>
-                                        <li class="list-group-item">Pontos: <%=usuario.usupontos%></li>
+                                        <li class="list-group-item">Email: <%=currentuser.username%></li>
+                                        <li class="list-group-item">Pontos: <%=currentuser.usupontos%></li>
                                       </ul>
                             </div>
                             <div class="modal-footer">
