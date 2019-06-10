@@ -1,0 +1,33 @@
+<%include ../partials/header%>
+    <div class="container">
+        <div class="row ">
+            <div class="col-sm">
+                <% usuario.pessoas.forEach(pessoa => {%> 
+                    <!-- Modal -->
+                    <div class="modal-dialog">
+                        <div class="modal-content">
+                            <div class="modal-body">
+                                <center>
+                                <img src="https://encrypted-tbn2.gstatic.com/images?q=tbn:ANd9GcRbezqZpEuwGSvitKy3wrwnth5kysKdRqBW54cAszm_wiutku3R" name="aboutme" width="140" height="140" border="0" class="img-circle"></a>
+                                <h3 class="media-heading"><%=pessoa.pesnome%> <small>USA</small></h3>
+                                </center>
+                                <br>
+                                    <ul class="list-group list-group-flush">
+                                        <li class="list-group-item">Email: <%=usuario.username%></li>
+                                        <li class="list-group-item">Pontos: <%=usuario.usupontos%></li>
+                                      </ul>
+                            </div>
+                            <div class="modal-footer">
+                                <center>
+                                        <a href="/gerardesconto/<%=currentuser._id%>" class="btn btn-primary">Gerar Desconto</a>
+                                </center>
+                            </div>
+                        </div>
+                </div>
+                <%});%>    
+
+        </div>
+       </div>
+    </div>
+
+<%include ../partials/footer%> 

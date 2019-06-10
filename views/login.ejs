@@ -1,19 +1,59 @@
-<%  include partials/header%>
+<% include partials/header%>
 <div class="container">
-<form action="/login" method="post">
-    <div class="card">
-        <div class="card-body">
-            <div class="form-group">
-                <input type="text" class="form-control" name="username" placeholder="Usuário">
+
+<div class = "row">
+        <div class="col-sm cardres">
+                <h1 class="h1 translg extra cardres2 resptext">TRANSFORMANDO </br> LIXO ELETRÔNICO </br> EM DESCONTOS!</h1>
             </div>
-            <div class="form-group">
-                <input type="password" class="form-control" name="password" placeholder="Senha">
+    <div class="col-sm">
+                <div class="card shadow-lg p-3 mb-5 bg-white rounded resp resplg">
+                    <div class="card-body" style="padding-top: 0">
+                        <form action="/login" method="post">
+                            <div class="d-flex justify-content-center">
+                                <img class="card-img-top cardres cardtop" src="/imagens/ediscard.svg">
+                            </div>
+                            <p class="text-center trans">Login</p>
+                            <div class="form-group">
+                                <input type="email" class="form-control" name="username" placeholder="E-mail">
+                            </div>
+                            <div class="form-group">
+                                <input type="password" class="form-control" name="password" placeholder="Senha">
+                            </div>
+                            <div class="form-group">
+                                <% if(errorArr && errorArr.length > 0){ %>
+                                <div class="alert alert-danger alert-dismissible fade show" role="alert">
+                                <strong>E-mail ou senha incorreta!</strong>
+                                <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                                <span aria-hidden="true">&times;</span>
+                                </button>
+                            </div>
+                                <% } %>
+                                <% if(successArr && successArr.length > 0){ %>
+                                <div class="alert alert-success" role="alert"> <%= successArr %> </div>
+                                <% } %>                      
+                            </div>
+                            <div class="form-group">
+                                <button class="btn botao btn-block" >ENTRAR</button> 
+                            </div>
+                               
+                        </form>
+
+                    </div>
+                    <div class="card-body">
+                        <p class="card-text text-center" style="font-size: .9rem">Não tem uma conta? <a href="/register">Cadastre-se!</a></p>
+                    </div>
+                </div>
+                
+               
             </div>
-            <button class="btn btn-sm btn-block" style="background-color: #cb4386;">ENTRAR</button> 
-        </div>
-    </div> 
-</form>
+    </div>
+
 </div>
+<div class="container">
+            
 
 
+    
+</div>
+        
 <% include partials/footer%>
