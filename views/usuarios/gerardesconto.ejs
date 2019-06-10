@@ -36,28 +36,28 @@
                                 <div class="form-group col-md-6">    
                                 <%if (usuario.usupontos >= 100 && totalValordesconto < 0.2) {%>
                                 <% var desconto = 0.05; %>
-                                <div class="custom-control custom-radio custom-control-inline">
+                                <div class="custom-control custom-radio custom-control-block">
                                 <input type="radio" class="custom-control-input" id="op1" name="desconto" value="<%=desconto%>">
                                 <label class="custom-control-label" for="op1">5%</label>
                                 </div>
                                 <%}%>
                                 <%if (usuario.usupontos >= 200 && totalValordesconto <0.15) {%>
                                 <% var desconto = 0.1; %>
-                                <div class="custom-control custom-radio custom-control-inline">
+                                <div class="custom-control custom-radio custom-control-block">
                                 <input type="radio" class="custom-control-input" id="op2" name="desconto" value="<%=desconto%>">
                                 <label class="custom-control-label" for="op2">10%</label>
                                 </div>
                                 <%}%>
                                 <%if (usuario.usupontos >=300 && totalValordesconto <0.1) {%>
                                 <% var desconto = 0.15; %>
-                                <div class="custom-control custom-radio custom-control-inline">
+                                <div class="custom-control custom-radio custom-control-block">
                                 <input type="radio" class="custom-control-input" id="op3" name="desconto" value="<%=desconto%>">
                                 <label class="custom-control-label" for="op3">15%</label>
                                 </div>
                                 <%}%>
                                 <%if (usuario.usupontos >= 400 && totalValordesconto <0.05) {%>
                                 <% var desconto = 0.2; %>
-                                <div class="custom-control custom-radio custom-control-inline">
+                                <div class="custom-control custom-radio custom-control-block">
                                 <input type="radio" class="custom-control-input" id="op4" name="desconto" value="<%=desconto%>">
                                 <label class="custom-control-label" for="op4">20%</label>
                                 </div>

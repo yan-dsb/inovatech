@@ -6,7 +6,7 @@
             
       <div class="justify-content-left">
         <div class="searchbar">
-        <form method="get" action="/balanca">
+        <form method="get" action="/search">
           <input class="search_input" type="text" name="login" placeholder="Search...">
           <input type="submit" class="fas fa-search" value="ok">
         </form>
@@ -17,6 +17,7 @@
     <%if (usuario === null) {%>
     <%} else {%>
     <div class="container">
+        <h3><%= currentuser.username%></h3>
         <% usuario.pessoas.forEach(pessoa => {%>
     
     <h1><%= pessoa.pesnome  %></h1>

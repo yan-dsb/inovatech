@@ -1,14 +1,18 @@
 <% include ../partials/header%>
     <div class="container">
-        <% produtos.forEach(produto => {%>
+    <div class="row">
+        <div class="col-sm">
+            <% produtos.forEach(produto => {%>
         <ul class="list-group" style="width: 20%">
             <li  class="list-group-item">Nome: <%= produto.nome%></li>
             <li  class="list-group-item" ><img class="img-thumbnail" src="<%= produto.imagemURL%>"></li>
             <li  class="list-group-item">Peso: <%= produto.peso%>KG</li>
             <a href="/produtos/<%= produto._id%>">Mais informações</a>
-            <a href="/produtos/new">Cadastrar</a>  
         </ul>
         <%}); %>
+        <a href="/produtos/new">Cadastrar</a>          
+        </div>
+    </div>
     </div>
     
 <% include ../partials/footer%>

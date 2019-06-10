@@ -71,49 +71,49 @@ function isLoggedIn(req, res, next){
 }
 
 
-router.post('/balanca', (req, res) => {
-    Balanca.create(req.body.balanca,(err, balanca)=>{
-        if (err) {
+// router.post('/balanca', (req, res) => {
+//     Balanca.create(req.body.balanca,(err, balanca)=>{
+//         if (err) {
             
-        } else {
-            var usuFunc = req.body.log;
-            Usuario.findOne({username: req.body.cliente.username}, (err, usuario)=>{
-                if (err) {
+//         } else {
+//             var usuFunc = req.body.log;
+//             Usuario.findOne({username: req.body.cliente.username}, (err, usuario)=>{
+//                 if (err) {
                     
-                } else {
-                    usuario.usupontos += req.body.balanca.pontosTotal;
-                    usuario.save();
-                    Usuario.findOne({username: usuFunc}, (err, usuarioFunc)=>{
-                        if (err) {
+//                 } else {
+//                     usuario.usupontos += req.body.balanca.pontosTotal;
+//                     usuario.save();
+//                     Usuario.findOne({username: usuFunc}, (err, usuarioFunc)=>{
+//                         if (err) {
                             
-                        } else {
-                            var usuariosBalanca = [usuario, usuarioFunc];
-                            Usuario.create(usuariosBalanca, (err, usuarioCF)=>{
-                                if (err) {
+//                         } else {
+//                             var usuariosBalanca = [usuario, usuarioFunc];
+//                             Usuario.create(usuariosBalanca, (err, usuarioCF)=>{
+//                                 if (err) {
                                     
-                                } else {
-                                    balanca.usuarios.push(usuarioCF);
-                                    balanca.save();                            
-                                }
-                            });
-                        }
-                    });
-                }
-            });
+//                                 } else {
+//                                     balanca.usuarios.push(usuarioCF);
+//                                     balanca.save();                            
+//                                 }
+//                             });
+//                         }
+//                     });
+//                 }
+//             });
             
-          Produto.create(req.body.produto, (err, produtos)=>{
-            if (err) {
+//           Produto.create(req.body.produto, (err, produtos)=>{
+//             if (err) {
                 
-            } else {
-                balanca.produtos.push(produtos)
-                balanca.save();  
-            }
-          });
+//             } else {
+//                 balanca.produtos.push(produtos)
+//                 balanca.save();  
+//             }
+//           });
 
           
-        }
-    });
-});
+//         }
+//     });
+// });
 
 //prototipo
 router.post('/balanca', (req, res) => {
@@ -127,7 +127,7 @@ router.post('/balanca', (req, res) => {
                 }else{
                     usuarioFound.usupontos += req.body.totalpontos;
                     usuarioFound.save();
-                    Usuario.create(usuarioFound, usuarioFunc, (err, usuarioCF)=>{
+                    Usuario.create(usuarioFound, currentuser, (err, usuarioCF)=>{
                         if (err) {
                             
                         } else {
