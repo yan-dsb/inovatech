@@ -31,11 +31,10 @@
             <li  class="list-group-item" ><img class="img-thumbnail" src="<%= produto.imagemURL%>"></li>
             <li  class="list-group-item">Peso: <%= produto.peso%>KG</li>
             <% var p = produto.peso %>
-            <button class="btbalanca" onclick="addelement('<%= produto.imagemURL%>',<%p%>)">Adicionar Lixo</button>
+            <button class="btbalanca" onclick="addelement('<%= produto.imagemURL%>',<%= p%>)">Adicionar Lixo</button>
         </ul>
         <%}); %>    
 </div>
-
 <div id="sidebar">
           
   <div class="cartao">

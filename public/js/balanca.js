@@ -5,7 +5,7 @@ var kilo = [];
 
 function start(kg){
 var total = 0;
-
+var k =0;
 /*
 var kg = kg.reduce(function(total, numero){
 console.log(total,numero);
@@ -16,7 +16,7 @@ return resultado;
 
 for (let index = 0; index < kg.length; index++) {
    total += kg[index];
-   console.log(total);
+   console.log('total peso'+total);
    k = total;
    console.log(k);
 }
@@ -33,6 +33,10 @@ function addelement(url,peso) {
 
 if(kilo.length < 10){
 console.log("Clicou");
+console.log(url);
+
+console.log(peso);
+
 var node = document.createElement("img");
 var element = document.getElementById("elements");
 element.appendChild(node);

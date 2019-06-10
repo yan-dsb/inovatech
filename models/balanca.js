@@ -10,12 +10,6 @@ var balancaSchema = mongoose.Schema({
             type: mongoose.Schema.Types.ObjectId,
             ref: "Usuario"
         }
-    ],
-    produtos:[
-        {
-            type: mongoose.Schema.Types.ObjectId,
-            ref: "Produto"
-        }
     ]
 });
 

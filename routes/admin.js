@@ -137,16 +137,6 @@ router.post('/balanca', (req, res) => {
                     });
                 }
             });
-                    
-          Produto.create(req.body.produto, (err, produtos)=>{
-            if (err) {
-                
-            } else {
-                balanca.produtos.push(produtos)
-                balanca.save();  
-            }
-          });
-
           
         }
     });
