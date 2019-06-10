@@ -27,32 +27,42 @@
                             </div>
                                 <hr>
                             <div class="form-row">
-                            <div class="custom-control custom-radio form-group">
+                            <div class="form-group">
                                     <p>Descontos Disponíveis</p>
                                 <% var totalValordesconto = 0; %>
                             <% usuario.comprovantes.forEach(comp => {%>
                                 <% totalValordesconto += comp.comvalordesconto%>
-                            <%}); %>    
+                            <%}); %>
+                                <div class="form-group col-md-6">    
                                 <%if (usuario.usupontos >= 100 && totalValordesconto < 0.2) {%>
                                 <% var desconto = 0.05; %>
-                                <input type="radio" class="custom-control-input" id="defaultGroupExample1" name="desconto" value="<%=desconto%>">
-                                <label class="custom-control-label" for="defaultGroupExample1">5%</label>
+                                <div class="custom-control custom-radio custom-control-inline">
+                                <input type="radio" class="custom-control-input" id="op1" name="desconto" value="<%=desconto%>">
+                                <label class="custom-control-label" for="op1">5%</label>
+                                </div>
                                 <%}%>
                                 <%if (usuario.usupontos >= 200 && totalValordesconto <0.15) {%>
                                 <% var desconto = 0.1; %>
-                                <input type="radio" class="custom-control-input" id="defaultGroupExample1" name="desconto" value="<%=desconto%>">
-                                <label class="custom-control-label" for="defaultGroupExample1">10%</label>
+                                <div class="custom-control custom-radio custom-control-inline">
+                                <input type="radio" class="custom-control-input" id="op2" name="desconto" value="<%=desconto%>">
+                                <label class="custom-control-label" for="op2">10%</label>
+                                </div>
                                 <%}%>
                                 <%if (usuario.usupontos >=300 && totalValordesconto <0.1) {%>
                                 <% var desconto = 0.15; %>
-                                <input type="radio" class="custom-control-input" id="defaultGroupExample1" name="desconto" value="<%=desconto%>">
-                                <label class="custom-control-label" for="defaultGroupExample1">15%</label>
+                                <div class="custom-control custom-radio custom-control-inline">
+                                <input type="radio" class="custom-control-input" id="op3" name="desconto" value="<%=desconto%>">
+                                <label class="custom-control-label" for="op3">15%</label>
+                                </div>
                                 <%}%>
                                 <%if (usuario.usupontos >= 400 && totalValordesconto <0.05) {%>
                                 <% var desconto = 0.2; %>
-                                <input type="radio" class="custom-control-input" id="defaultGroupExample1" name="desconto" value="<%=desconto%>">
-                                <label class="custom-control-label" for="defaultGroupExample1">20%</label>
+                                <div class="custom-control custom-radio custom-control-inline">
+                                <input type="radio" class="custom-control-input" id="op4" name="desconto" value="<%=desconto%>">
+                                <label class="custom-control-label" for="op4">20%</label>
+                                </div>
                                 <%}%>
+                                </div>
                                 <hr>
                                 <div class="form-group">
                                         <h5>Dicas</h5>
