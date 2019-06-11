@@ -54,7 +54,7 @@ router.get('/comprovantes/:id', isLoggedIn, (req,res)=>{
 
 
  router.post('/gerardesconto',isLoggedIn, (req, res) => {
-    QRCode.toFile('uploads/qrcode.png', 'http://192.168.0.104:3000', {
+    QRCode.toFile('uploads/qrcode.png', 'Desconto utilizado com sucesso!', {
         color: {
         dark: '#00F',  // Blue dots
          light: '#0000' // Transparent background
@@ -121,24 +121,23 @@ router.get('/comprovantes/:id', isLoggedIn, (req,res)=>{
 
             var dir = 'uploads/'+ pdfURL;   
             doc.pipe(fs.createWriteStream(dir));
-            doc.fontSize(14)
-            doc.text('Cliente: '+nomeCliente);
+            doc.image('public/imagens/ediscard.png', 280, 1, {fit: [100, 100], align: 'center', valign: 'center'});
             doc.moveDown();
-            doc.text('CPF: '+cpfCliente);
+            doc.text('                                           ');
             doc.moveDown();
-            doc.text('Telefone: '+telefoneCliente);
+            doc.text('Cliente: '+nomeCliente, {align: 'center'});
             doc.moveDown();
-            doc.text('Valor desconto: '+desc);
+            doc.text('CPF: '+cpfCliente, {align: 'center'});
             doc.moveDown();
-            doc.text('Pontos utilizados: '+pontos);
+            doc.text('Telefone: '+telefoneCliente, {align: 'center'});
             doc.moveDown();
-            doc.text('Data de validade: '+dataVal);
+            doc.text('Valor desconto: '+desc, {align: 'center'});
             doc.moveDown();
-            doc.image('uploads/qrcode.png',{
-                fit: [200, 200],
-                align: 'center',
-                valign: 'center'
-             });
+            doc.text('Pontos utilizados: '+pontos, {align: 'center'});
+            doc.moveDown();
+            doc.text('Data de validade: '+dataVal, {align: 'center'});
+            doc.moveDown();
+            doc.image('uploads/qrcode.png', 280, 280, {fit: [100, 100], align: 'center', valign: 'center'});
             doc.end();
 
             usuario.comprovantes.push(data);

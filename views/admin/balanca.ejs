@@ -13,21 +13,24 @@
     </div>
   </form>
                           
-  <form method="post" action="">    
+    
     <%if (usuario === null) {%>
     <%} else {%>
       <% usuario.pessoas.forEach(pessoa => {%>
+      <form method="post" action="/balanca">  
       <input readonly class="asd" name="nome" value="<%= pessoa.pesnome  %>">
       <input readonly class="asd"  name="cpf" value="<%= pessoa.pescpf  %>">
       <input readonly class="asd"  name="login" value="<%= usuario.username  %>">
       <input readonly class="asd"  name ="pontos" value="<%= usuario.usupontos  %>">
-      <input id="ponto" readonly name="balanca[baltotalpeso]" class="asd"  value="0">
-      <input id="flexpeso" name="balanca[baltotalpontos]" readonly class="asd"  value="0">
-
-    <% }) %>
+       <input readonly class="asd" hidden  name ="usuarioFunc" value="<%= currentuser.username%>">
+      <input id="ponto" readonly name="balanca[baltotalpontos]" class="asd"  value="0">
+      <input id="flexpeso" name="balanca[baltotalpeso]" readonly class="asd"  value="0">
       <button  type="submit" value="Submit" class="botao btn" style="margin-bottom: 5px; padding: .2rem .75rem;">Gerar Pontos</button>
+      </form>  
+    <% }) %>
+      
     <%}  %>
-  </form>   
+   
   </div>
 </div>
     

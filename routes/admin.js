@@ -3,6 +3,7 @@ var express = require("express");
 var router = express.Router();
 var Usuario = require("../models/usuario");
 var Produto = require("../models/produto");
+var Balanca = require("../models/balanca");
 
 router.get('/adminSecret', isLoggedIn, (req, res) => {
     res.render("admin/secret");
@@ -71,52 +72,8 @@ function isLoggedIn(req, res, next){
 }
 
 
-// router.post('/balanca', (req, res) => {
-//     Balanca.create(req.body.balanca,(err, balanca)=>{
-//         if (err) {
-            
-//         } else {
-//             var usuFunc = req.body.log;
-//             Usuario.findOne({username: req.body.cliente.username}, (err, usuario)=>{
-//                 if (err) {
-                    
-//                 } else {
-//                     usuario.usupontos += req.body.balanca.pontosTotal;
-//                     usuario.save();
-//                     Usuario.findOne({username: usuFunc}, (err, usuarioFunc)=>{
-//                         if (err) {
-                            
-//                         } else {
-//                             var usuariosBalanca = [usuario, usuarioFunc];
-//                             Usuario.create(usuariosBalanca, (err, usuarioCF)=>{
-//                                 if (err) {
-                                    
-//                                 } else {
-//                                     balanca.usuarios.push(usuarioCF);
-//                                     balanca.save();                            
-//                                 }
-//                             });
-//                         }
-//                     });
-//                 }
-//             });
-            
-//           Produto.create(req.body.produto, (err, produtos)=>{
-//             if (err) {
-                
-//             } else {
-//                 balanca.produtos.push(produtos)
-//                 balanca.save();  
-//             }
-//           });
 
-          
-//         }
-//     });
-// });
-
-//prototipo
-router.post('/balanca', (req, res) => {
+router.post('/balanca',isLoggedIn, (req, res) => {
     Balanca.create(req.body.balanca,(err, balanca)=>{
         if (err) {
             
@@ -125,19 +82,20 @@ router.post('/balanca', (req, res) => {
                 if (err) {
                             
                 }else{
-                    usuarioFound.usupontos += req.body.balanca.baltotalpontos;
+                    usuarioFound.usupontos += parseInt(req.body.balanca.baltotalpontos);
                     usuarioFound.save();
-                    Usuario.create(usuarioFound, currentuser, (err, usuarioCF)=>{
+                    Usuario.findOne({username : req.body.usuarioFunc}, (err, usuarioFunc)=>{
                         if (err) {
                             
                         } else {
-                            balanca.usuarios.push(usuarioCF);
-                            balanca.save();                            
+                            balanca.usuarios.push(usuarioFunc, usuarioFound);
+                            balanca.save();
+                            console.log(balanca);                                
                         }
                     });
                 }
             });
-          
+         res.redirect('/balanca'); 
         }
     });
 });
