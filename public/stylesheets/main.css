@@ -23,6 +23,18 @@ html{
     font-weight: 600;
 }
 
+.botao-menor{
+background: -webkit-linear-gradient( -75deg, #5c8635 7%, rgba(58,73,89,1) 93%);
+font-size: .8rem; 
+padding: .2rem .5rem; 
+margin-top: 5px; 
+margin-bottom: 5px;
+border: 1px solid transparent;
+border-radius: 20px;
+font-weight: 600;
+color: #fff;
+}
+
 .botao_hover{
     margin-top: 10px;
     color: #c4c4c4;
