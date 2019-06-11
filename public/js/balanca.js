@@ -23,6 +23,8 @@ function calcponto(count){
 //console.log(resultado);
 if (count != kg) {
 count = count+1;
+flexpeso = document.getElementById("flexpeso");
+flexpeso.setAttribute("value",count);
 flex.innerText = count+",00Kg";
 point = calcponto(count);
 var textnode = document.createTextNode(point);
@@ -31,7 +33,7 @@ setTimeout('start(kilo);',10);
 }
 
 
-document.getElementById("ponto").appendChild(textnode);
+ponto.setAttribute("value",point);
 ponto.innerText = point;
 }
 

@@ -125,7 +125,7 @@ router.post('/balanca', (req, res) => {
                 if (err) {
                             
                 }else{
-                    usuarioFound.usupontos += req.body.totalpontos;
+                    usuarioFound.usupontos += req.body.balanca.baltotalpontos;
                     usuarioFound.save();
                     Usuario.create(usuarioFound, currentuser, (err, usuarioCF)=>{
                         if (err) {
