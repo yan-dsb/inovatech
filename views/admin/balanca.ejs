@@ -1,46 +1,49 @@
 <% include ../partials/header %>
 
-    <div class="container">
-     <div class="row">
-            <div class="col-sm">
-             <%if (usuario === null) {%>
-    <%} else {%>
-        <h3><%= currentuser.username%></h3>
-        <% usuario.pessoas.forEach(pessoa => {%>
+
+              <div class="resultado">
+                <form method="get" action="/balanca">   
+                     <div id="divoff"> 
+                     <div class="input-group col-md-12">                 
+                          <input class="form-control py-2 border-right-0 border" placeholder="E-mail do cliente" type="search" name="login" id="example-search-input">
+                       <span class="input-group-append">
+                      <button class="btn btn-outline-secondary border-left-0 border" type="submit">
+                           <i class="fa fa-search"></i>
+                          </button>
+                           </span>
+                          </div>
+                          </div>
+                          </form>
+                          <form method="post" action="">    
+                          <%if (usuario === null) {%>
+                            <%} else {%>
+                          
+                                <% usuario.pessoas.forEach(pessoa => {%>
+                          
+                                    <input readonly class="asd" name="nome" value="<%= pessoa.pesnome  %>">
+                                    <input readonly class="asd"  name="cpf" value="<%= pessoa.pescpf  %>">
+                                    <input readonly class="asd"  name="username" value="<%= usuario.username  %>">
+                                    <input readonly class="asd"  name ="pontos" value="<%= usuario.usupontos  %>">
+                            <% }) %>
+                                     <button  type="submit" value="Submit" class="botao btn btn-block">Validar Pontos</button>
+                            
+                            <%}  %>
+                           </form>   
+                      </div>
+              </div>
     
-    <h1><%= pessoa.pesnome  %></h1>
-    <% }) %>
 
-    <%} %>
-        <% produto.forEach(produto => {%>
-        <ul class="list-group" style="width: 20%">
-            <li  class="list-group-item">Nome: <%= produto.nome%></li>
-            <li  class="list-group-item" ><img class="img-thumbnail" src="<%= produto.imagemURL%>"></li>
-            <li  class="list-group-item">Peso: <%= produto.peso%>KG</li>
-            <% var p = produto.peso %>
-            <button class="btbalanca" onclick="addelement('<%= produto.imagemURL%>',<%= p%>)">Adicionar Lixo</button>
-        </ul>
-        <%}); %>    
-<div id="sidebar">
-          
-  <div class="cartao">
-      <img class="cartao-img" src="/imagens/fake-news-ileine-machado.jpg" alt="Card image cap">
-        <button class="btbalanca" onclick="addelement('/imagens/fake-news-ileine-machado.jpg',50)">Adicionar Lixo</button>
-    </div>
-
+<div id="sidebar">    
+  <% produto.forEach(produto => {%>
     <div class="cartao">
-        <img class="cartao-img" src="https://i.pinimg.com/originals/6a/cb/aa/6acbaa3df7a92c04401df4c17d0474ce.jpg" alt="Card image cap">
-          <button class="btbalanca" onclick="addelement('https://i.pinimg.com/originals/6a/cb/aa/6acbaa3df7a92c04401df4c17d0474ce.jpg',100)">Adicionar Lixo</button>
-      </div>
-      <div class="cartao">
-          <img class="cartao-img" src="/imagens/nao.png" alt="Card image cap">
-            <button class="btbalanca" onclick="addelement('/imagens/nao.png',90)">Adicionar Lixo</button>
-        </div>
-        <div class="cartao">
-            <img class="cartao-img" src="/imagens/iconinovatec.jpeg" alt="Card image cap">
-              <button class="btbalanca" onclick="addelement('/imagens/iconinovatec.jpeg',30)">Adicionar Lixo</button>
-            </div>    
-
+    <img class="cartao-img" src="<%= produto.imagemURL%>" alt="Card image cap">
+      <ul class="list-group">
+      <li  class="list-group-item lista">Nome: <%= produto.nome%></li>
+      <li  class="list-group-item lista">Peso: <%= produto.peso%>KG</li>
+      <button class="btbalanca" onclick="addelement('<%= produto.imagemURL%>',<%= produto.peso%>)">Adicionar Lixo</button>
+  </ul>
+</div>
+  <%}); %>
 </div>
 
 
@@ -58,22 +61,5 @@
 <div id="pe"></div>
 <div id="pe"></div>
 </div>
-            
-      <div class="justify-content-left">
-        <div class="searchbar">
-        <form method="get" action="/search">
-          <input class="search_input" type="text" name="login" placeholder="Search...">
-          <input type="submit" class="fas fa-search" value="ok">
-        </form>
-        </div>
-      </div>
-    </div>
-    </div>
-   
 
-
-
-<form method="POST" action="/balanca">
-    
-</form>
-<% include ../partials/footer %>
+<%include ../partials/footer %>
