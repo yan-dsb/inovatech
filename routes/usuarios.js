@@ -2,12 +2,11 @@
 var express = require("express");
 var router = express.Router();
 var Usuario = require("../models/usuario");
-var Pessoa = require("../models/pessoa");
+
 var PDFDocument = require('pdfkit');
 var fs = require('fs');
 var QRCode = require('qrcode')
 var moment = require('moment')
-var tz = require('moment')
 
 router.get('/gerardesconto/:id', isLoggedIn, (req, res) => {
     Usuario.findById(req.params.id).populate("pessoas").exec((err, usuario)=>{

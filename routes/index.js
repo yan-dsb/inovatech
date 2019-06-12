@@ -4,6 +4,7 @@ var router = express.Router();
 var Pessoa = require("../models/pessoa");
 var Usuario = require("../models/usuario");
 var passport = require("passport");
+var Produto = require("../models/produto");
 
 router.get('/', (req, res) => {
     res.render("home");
@@ -12,7 +13,16 @@ router.get('/', (req, res) => {
 router.get('/login', (req, res) => {
     res.render("login");
 });
-
+router.get('/simulacao', (req, res) => {
+    Produto.find({}, (err, produto)=>{
+        if (err) {
+            
+        } else {
+            res.render("simulacao", {produto:produto});
+        }
+    });
+    
+});
 router.get('/register', (req, res) => {
     res.render("register");
 });

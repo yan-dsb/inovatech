@@ -205,6 +205,7 @@ color: #fff;
 }
 }
 
+
 @media(min-width:940px){
 .desk{
     margin-right:20px;
@@ -271,4 +272,18 @@ color: #fff;
 .asd {
     background:rgba(0,0,0,0);
     border:none;
+}
+.col2{
+    position: relative;
+    width: 100px;
+    min-height: 1px;
+    padding-right: 0%;
+    padding-left: 0%;
+}
+.colML{
+    margin-left: -32%;
+    margin-bottom: -25%;
+}
+.form-group2 {
+    margin-bottom: 0.5rem;
 }

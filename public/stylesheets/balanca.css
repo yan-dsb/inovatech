@@ -1,13 +1,11 @@
 #balanca{
-    display: inline-block;
-    left: 3%;
-      /*20 px de cima e baixo e automatico dos lados(regula automaticamente)*/
-    border: 3px   none black   ;
-    text-align: center;
-    width: 50%;
-    
-    position: relative;
-    margin-top: 290px;
+  display: inline-block;
+  right: 10%;
+  border: 3px none black;
+  text-align: center;
+  width: 100%;
+  position: relative;
+  margin-top: 230px;
     
     }
     #pesagem {
@@ -44,22 +42,20 @@
     }
     #valor{
       display: block;
-    position:relative;
-    text-align: center;
-    border-radius: 15px 15px 15px 15px;
-    border: 4px solid black;
-    background-color: #2E9AFE;
-    top: 0px;
-    width: 40%;
-    height: 200px;
-    margin: auto;
+      position: relative;
+      text-align: center;
+      border-radius: 15px 15px 15px 15px;
+      border: 4px solid black;
+      background-color: #2E9AFE;
+      top: 0px;
+      width: 86%;
+      height: 150px;
+      margin: auto;
     }
     #flex{
-    margin: 70px auto;    /*20 px de cima e baixo e automatico dos lados(regula automaticamente)*/
-    border: 8px    #848484     double;
+      margin: 50px auto;
     background-color: white;
-    width: 55%;
-    height: 50px;
+    width: 77%;
     position: relative;
     text-align: center;
     color:black ;
@@ -76,17 +72,10 @@
     }
 
     #elements{
-  
-    display: block;
-    position: absolute;
-  
-    background-color: linear-gradient(to right, #eef2f3, #8e9eab);
-    width: 50%;
-    height: 200px;
-    margin: 5% auto 0% 2%;
-    top: 4px;
-    left: 21%;
-    
+      right: 20%;
+      display: block;
+      position: absolute;
+      background-color: linear-gradient(to right, #eef2f3, #8e9eab);
     
     }
 
@@ -107,32 +96,19 @@
 
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
     body{
         margin: 0%;
       }
     
    
     div#sidebar{
-      overflow: auto;
-      float: left;
-      position: relative;
-      margin-top: 57px;
-      width: 20%;
-      height: 601px;
-      background-color: white;
+      overflow-y: scroll;
+      overflow-x: hidden;
+    float: left;
+    position: relative;
+    margin-top: 65px;
+    height: 800px;
+    background-color: white
 
     }
      
