@@ -1,11 +1,13 @@
 #balanca{
-  display: inline-block;
-  right: 10%;
-  border: 3px none black;
-  text-align: center;
-  width: 100%;
-  position: relative;
-  margin-top: 230px;
+    display: inline-block;
+    left: 3%;
+      /*20 px de cima e baixo e automatico dos lados(regula automaticamente)*/
+    border: 3px   none black   ;
+    text-align: center;
+    width: 50%;
+    
+    position: relative;
+    margin-top: 290px;
     
     }
     #pesagem {
@@ -42,20 +44,22 @@
     }
     #valor{
       display: block;
-      position: relative;
-      text-align: center;
-      border-radius: 15px 15px 15px 15px;
-      border: 4px solid black;
-      background-color: #2E9AFE;
-      top: 0px;
-      width: 86%;
-      height: 150px;
-      margin: auto;
+    position:relative;
+    text-align: center;
+    border-radius: 15px 15px 15px 15px;
+    border: 4px solid black;
+    background-color: #2E9AFE;
+    top: 0px;
+    width: 40%;
+    height: 200px;
+    margin: auto;
     }
     #flex{
-      margin: 50px auto;
+    margin: 70px auto;    /*20 px de cima e baixo e automatico dos lados(regula automaticamente)*/
+    border: 8px    #848484     double;
     background-color: white;
-    width: 77%;
+    width: 55%;
+    height: 50px;
     position: relative;
     text-align: center;
     color:black ;
@@ -72,10 +76,17 @@
     }
 
     #elements{
-      right: 20%;
-      display: block;
-      position: absolute;
-      background-color: linear-gradient(to right, #eef2f3, #8e9eab);
+  
+    display: block;
+    position: absolute;
+  
+    background-color: linear-gradient(to right, #eef2f3, #8e9eab);
+    width: 50%;
+    height: 200px;
+    margin: 5% auto 0% 2%;
+    top: 4px;
+    left: 21%;
+    
     
     }
 
@@ -90,25 +101,20 @@
     width:10%;
     }
 
-    
 
-
-
-
-
-    body{
+     body{
         margin: 0%;
       }
     
    
     div#sidebar{
-      overflow-y: scroll;
-      overflow-x: hidden;
-    float: left;
-    position: relative;
-    margin-top: 65px;
-    height: 800px;
-    background-color: white
+      overflow: auto;
+      float: left;
+      position: relative;
+      margin-top: 57px;
+      width: 20%;
+      height: 595px;
+      background-color: white;
 
     }
      
@@ -119,7 +125,6 @@
     .cartao{
       display: block;
       border-radius: 0;
-     
       position: relative;
       margin: 0px auto 10px auto ;
       background-color: rgba(0, 0, 0, 0);
@@ -171,4 +176,193 @@
       font-size: 20pt;
       text-align: center;
       color: forestgreen;
+    }
+
+
+
+.asd{
+          display: block;
+          margin: 0px auto 3px auto;
+          text-align: center;
+          width: 100%;
+        }  
+
+ #labresult{
+     color: green;
+     font-size:15pt;
+     margin-bottom: 0px;
+ }
+
+
+
+    @media screen and (max-width: 480px){
+      #balanca{
+        left: 3%;
+          /*20 px de cima e baixo e automatico dos lados(regula automaticamente)*/
+        border: 3px   none black   ;
+        text-align: center;
+        width: 50%;
+        position: relative;
+        margin-top: 50px;
+        margin-bottom: 40px;
+        }
+
+        #pesagem {
+        height: 30px;
+        }
+        
+        #valor{
+        top: 0px;
+        width: 50%;
+        height: 130px;
+        margin: auto;
+        }
+
+        #suporte{
+        height:30px;
+        margin: 0px 10px ;        
+        width:5%;
+        }
+        
+        #pe{
+        display: none;
+        }
+     
+        #flex{
+        margin: 50px auto;    /*20 px de cima e baixo e automatico dos lados(regula automaticamente)*/
+        width: 85%;
+        height: 30px;
+        font-size: 10pt;
+        }
+
+
+        #elements{
+          width: 50%;
+          height: 165px;
+          top: 82px !important;
+          left: 21%;
+          
+          
+          }
+
+
+        div#sidebar{
+          margin-top: 57px;
+          width: 20%;
+          height: 420px;
+    
+        }
+    
+        
+
+        .cartao-img{
+          width:50%;
+          height: 40px;
+        }
+        .itli{
+          font-size: .6rem !important;
+        }
+
+ 
+        .gerarpt{
+         width: 97%;
+         font-size: 5pt;
+        }
+
+        .resultado{
+          margin: 70px 20px auto auto;
+          font-size: 20pt;
+          width: 70% !important;
+  
+          }
+
+        .asd{
+          font-size: 2pt;
+        }  
+    }
+
+    @media screen and (max-width: 800px){
+      #balanca{
+        left: 3%;
+          /*20 px de cima e baixo e automatico dos lados(regula automaticamente)*/
+        border: 3px   none black   ;
+        text-align: center;
+        width: 50%;
+        position: relative;
+        margin-top: 95px;
+        margin-bottom: 0px;
+        }
+
+        #pesagem {
+        height: 30px;
+        }
+        
+        #valor{
+        top: 0px;
+        width: 50%;
+        height: 130px;
+        margin: auto;
+        }
+
+        #suporte{
+        height:30px;
+        margin: 0px 10px ;        
+        width:5%;
+        }
+        
+        #pe{
+        display: none;
+        }
+     
+        #flex{
+        margin: 50px auto;    /*20 px de cima e baixo e automatico dos lados(regula automaticamente)*/
+        width: 85%;
+        height: 30px;
+        font-size: 10pt;
+        }
+
+
+        #elements{
+          width: 50%;
+          height: 165px;
+          top: 69px !important;
+          left: 21%;
+          
+          
+          }
+
+
+        div#sidebar{
+          margin-top: 57px;
+          width: 20%;
+          height: 420px;
+    
+        }
+    
+        
+
+        .cartao-img{
+          width:50%;
+          height: 40px;
+        }
+        .itli{
+          font-size: .6rem !important;
+        }
+
+ 
+        .gerarpt{
+         width: 97%;
+         font-size: 5pt;
+        }
+
+        .resultado{
+          margin: 70px 20px auto auto;
+          font-size: 20pt;
+          width: 70% !important;
+  
+          }
+
+        .asd{
+          font-size: 5pt;
+        }  
     }

@@ -1,0 +1,23 @@
+<% include ../partials/header%>
+<div class="container">
+    <div class="row">
+        <div class="col-sm">
+        <h3>Comprovante pronto para download</h3>
+            <ul class="list-group list-group-flush">
+                <% usuario.comprovantes.forEach((i,idx,comp) => {%>
+            <% if (idx === comp.length -1) {%>
+                 <li class="list-group-item"><a href="/download/<%= i.comURL%>">Download  </a>Gerado em: <strong><%= moment(i.dataCriado).format('LLL');  %></strong></li>
+            <%} %>
+    
+            <%}); %>
+     </ul>
+</div>
+    </div>
+</div>
+
+
+
+<% include ../partials/footer%>
+
+
+     

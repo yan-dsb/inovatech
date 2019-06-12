@@ -1,0 +1,174 @@
+#balanca{
+  display: inline-block;
+  right: 10%;
+  border: 3px none black;
+  text-align: center;
+  width: 100%;
+  position: relative;
+  margin-top: 230px;
+    
+    }
+    #pesagem {
+    display: block;
+    position: relative;
+    text-align: center;
+    border-radius: 5px 5px 50px 50px;
+    border: 4px solid black;
+    background-color: #2E9AFE;
+    width: 100%;
+    height: 35px;
+    }
+    #suporte{
+    display: inline-block;
+    position:relative;
+    border-right: 2px solid black;
+    border-left: 2px solid black;
+    background-color: #848484;
+    height:40px;
+    margin: 0px 30px;
+    
+    width:3%;
+ 
+    }
+    #pe{
+    display: inline-block;
+    position:relative;
+    border: 5px solid black;
+    background-color:grey;
+    height:20px;
+    margin: 0px 30px;
+    width:5%;
+    right:1px;
+    }
+    #valor{
+      display: block;
+      position: relative;
+      text-align: center;
+      border-radius: 15px 15px 15px 15px;
+      border: 4px solid black;
+      background-color: #2E9AFE;
+      top: 0px;
+      width: 86%;
+      height: 150px;
+      margin: auto;
+    }
+    #flex{
+      margin: 50px auto;
+    background-color: white;
+    width: 77%;
+    position: relative;
+    text-align: center;
+    color:black ;
+    font-size: 20pt;
+    
+    }
+ 
+    .icon{
+    position: relative;
+    display: none;
+    margin-top: 30px;
+    width: 35px;
+    height: 35px;
+    }
+
+    #elements{
+      right: 20%;
+      display: block;
+      position: absolute;
+      background-color: linear-gradient(to right, #eef2f3, #8e9eab);
+    
+    }
+
+
+    .lixo {
+    margin: 0px;
+    cursor: move;
+    position: relative;
+    display: inline-block;
+    z-index: 9;
+    height:25%;
+    width:10%;
+    }
+
+    
+
+
+
+
+
+    body{
+        margin: 0%;
+      }
+    
+   
+    div#sidebar{
+      overflow-y: scroll;
+      overflow-x: hidden;
+    float: left;
+    position: relative;
+    margin-top: 65px;
+    height: 800px;
+    background-color: white
+
+    }
+     
+    .lista{
+      background-color: white;
+    }
+   
+    .cartao{
+      display: block;
+      border-radius: 0;
+     
+      position: relative;
+      margin: 0px auto 10px auto ;
+      background-color: rgba(0, 0, 0, 0);
+      border-bottom: gray 1px solid;
+     
+    }
+    .cartao-img{
+      display: block;
+      margin: 0px auto 10px auto ;
+      width:70%;
+      height: 100px;
+    }
+    
+    button.btbalanca{
+      border-radius: 20px 20px 20px 20px;
+        display:block;
+        border: 2px solid rgb(7, 122, 23);
+        color: white;
+        background-color: rgb(44,119,40);
+        transition: 1s;
+        position: relative;
+        margin: 10px auto 10px auto;
+        width:60%;
+        height:25px;
+    }
+    button.btbalanca:hover{
+        border: 2px solid black ;
+        /* background-color: ; */
+        color: rgba(0, 0, 0, .8);
+    }
+
+    .form-input{
+      display: block;
+      width: 90%;
+      margin: 10px auto 0px auto;
+
+    }
+
+    .label-result{
+      display: block;
+      margin: 10px auto 0px auto;
+      font-size: 20pt;
+      text-align: center;
+    }
+
+    .ponto-resultado{
+      display: block;
+      margin: 10px auto 0px auto;
+      font-size: 20pt;
+      text-align: center;
+      color: forestgreen;
+    }

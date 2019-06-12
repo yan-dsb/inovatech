@@ -23,9 +23,9 @@ function calcponto(count){
 //console.log(resultado);
 if (count != kg) {
 count = count+1;
-flex.innerText = count+",00Kg";
 flexpeso = document.getElementById("flexpeso");
 flexpeso.setAttribute("value",count);
+flex.innerText = count+",00Kg";
 point = calcponto(count);
 var textnode = document.createTextNode(point);
 setTimeout('start(kilo);',10);
@@ -53,8 +53,7 @@ node.setAttribute("src",url);
 var box = $('.lixo');
 kilo.push(peso);
 box.animate({
-//top:"175px",
-top:"87%",
+top:"175px",
 },1000);
 setTimeout('start(kilo);', 1000);
 }else
