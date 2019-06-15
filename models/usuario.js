@@ -15,8 +15,8 @@ var Comprovante = mongoose.model("Comprovante", comprovanteSchema);
 var usuarioSchema = mongoose.Schema({
     username: String,
     password: String,
-    usupontos: {type: Number, default: 1000},
-    inadmin: {type: Number, default: 1},
+    usupontos: {type: Number, default: 100},
+    inadmin: {type: Number, default: 0},
     default: 0,
     dthora: {type: Date, default:Date.now},
     pessoas: [

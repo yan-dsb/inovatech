@@ -9,6 +9,7 @@ peso = 20;
 
 function start(kg){
 var total;
+
 var kg = kg.reduce(function(total, numero){
 console.log(total,numero);
 resultado =  total + numero;

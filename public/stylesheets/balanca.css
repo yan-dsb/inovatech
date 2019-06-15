@@ -193,176 +193,203 @@
      margin-bottom: 0px;
  }
 
+ .divoff{
+  display: none;
+}
+
+ .resultado{
+  border-radius: 0;
+  box-shadow:      5px 7px 5px  rgba(50, 50, 50, 0.77);
+  display: block;
+  margin: 70px 0px auto auto;
+  width: 25%;
+  float: right;
+  background-color: white;
+  text-align: center;
+}
+
+.pesq{
+  width: 50%;
+  float: right;
+  top: 50px;
+  position: relative;
+}
 
 
-    @media screen and (max-width: 480px){
-      #balanca{
-        left: 3%;
-          /*20 px de cima e baixo e automatico dos lados(regula automaticamente)*/
-        border: 3px   none black   ;
-        text-align: center;
-        width: 50%;
-        position: relative;
-        margin-top: 50px;
-        margin-bottom: 40px;
-        }
-
-        #pesagem {
-        height: 30px;
-        }
-        
-        #valor{
-        top: 0px;
-        width: 50%;
-        height: 130px;
-        margin: auto;
-        }
-
-        #suporte{
-        height:30px;
-        margin: 0px 10px ;        
-        width:5%;
-        }
-        
-        #pe{
-        display: none;
-        }
-     
-        #flex{
-        margin: 50px auto;    /*20 px de cima e baixo e automatico dos lados(regula automaticamente)*/
-        width: 85%;
-        height: 30px;
-        font-size: 10pt;
-        }
-
-
-        #elements{
-          width: 50%;
-          height: 165px;
-          top: 82px !important;
-          left: 21%;
-          
-          
-          }
-
-
-        div#sidebar{
-          margin-top: 57px;
-          width: 20%;
-          height: 420px;
-    
-        }
-    
-        
-
-        .cartao-img{
-          width:50%;
-          height: 40px;
-        }
-        .itli{
-          font-size: .6rem !important;
-        }
-
- 
-        .gerarpt{
-         width: 97%;
-         font-size: 5pt;
-        }
-
-        .resultado{
-          margin: 70px 20px auto auto;
-          font-size: 20pt;
-          width: 70% !important;
-  
-          }
-
-        .asd{
-          font-size: 2pt;
-        }  
+@media (max-width: 480px) { 
+  #balanca{
+    width: 50%;
+    margin-top: 270px;
+    left: 0%;
     }
 
-    @media screen and (max-width: 800px){
-      #balanca{
-        left: 3%;
-          /*20 px de cima e baixo e automatico dos lados(regula automaticamente)*/
-        border: 3px   none black   ;
-        text-align: center;
-        width: 50%;
-        position: relative;
-        margin-top: 95px;
-        margin-bottom: 0px;
-        }
-
-        #pesagem {
-        height: 30px;
-        }
-        
-        #valor{
-        top: 0px;
-        width: 50%;
-        height: 130px;
-        margin: auto;
-        }
-
-        #suporte{
-        height:30px;
-        margin: 0px 10px ;        
-        width:5%;
-        }
-        
-        #pe{
-        display: none;
-        }
-     
-        #flex{
-        margin: 50px auto;    /*20 px de cima e baixo e automatico dos lados(regula automaticamente)*/
-        width: 85%;
-        height: 30px;
-        font-size: 10pt;
-        }
-
-
-        #elements{
-          width: 50%;
-          height: 165px;
-          top: 69px !important;
-          left: 21%;
-          
-          
-          }
-
-
-        div#sidebar{
-          margin-top: 57px;
-          width: 20%;
-          height: 420px;
-    
-        }
-    
-        
-
-        .cartao-img{
-          width:50%;
-          height: 40px;
-        }
-        .itli{
-          font-size: .6rem !important;
-        }
-
- 
-        .gerarpt{
-         width: 97%;
-         font-size: 5pt;
-        }
-
-        .resultado{
-          margin: 70px 20px auto auto;
-          font-size: 20pt;
-          width: 70% !important;
-  
-          }
-
-        .asd{
-          font-size: 5pt;
-        }  
+    #pesagem {
+    height: 30px;
     }
+    
+    #valor{
+    top: 0px;
+    width: 50%;
+    height: 130px;
+    margin: auto;
+    }
+
+    #suporte{
+    height:30px;
+    margin: 0px 10px ;        
+    width:5%;
+    }
+    
+    #pe{
+    display: none;
+    }
+ 
+    #flex{
+    margin: 50px auto;    /*20 px de cima e baixo e automatico dos lados(regula automaticamente)*/
+    width: 85%;
+    height: 30px;
+    font-size: 10pt;
+    }
+
+
+    #elements{
+      width: 50%;
+      height: 15px;
+      top: 192px !important;
+      left: 18% !important;
+      
+      
+      }
+
+
+    div#sidebar{
+      margin-top: 57px;
+      width: 20%;
+      height: 420px;
+
+    }
+
+    
+
+    .cartao-img{
+      width:50%;
+      height: 40px;
+    }
+    .itli{
+      font-size: .6rem !important;
+    }
+
+
+    .gerarpt{
+     width: 97%;
+     font-size: 5pt;
+    }
+
+    .resultado{
+      margin: 70px 0px auto auto;
+      font-size: 20pt;
+      width: 30% !important;
+      
+      }
+
+    .asd{
+      font-size: 2pt;
+    }  
+ }
+ 
+/* Telefones em paisagem a tablet em retrato */
+@media (max-width: 900px) {
+
+  #balaca{
+    left: 3%;
+      /*20 px de cima e baixo e automatico dos lados(regula automaticamente)*/
+    border: 3px   none black   ;
+    text-align: center;
+    width: 50%;
+    position: relative;
+    margin-top: 95px;
+    margin-bottom: 0px;
+    }
+
+    #pesagem {
+    height: 30px;
+    }
+    
+    #valor{
+    top: 0px;
+    width: 50%;
+    height: 130px;
+    margin: auto;
+    }
+
+    #suporte{
+    height:30px;
+    margin: 0px 10px ;        
+    width:5%;
+    }
+    
+    #pe{
+    display: none;
+    }
+ 
+    #flex{
+    margin: 50px auto;    /*20 px de cima e baixo e automatico dos lados(regula automaticamente)*/
+    width: 85%;
+    height: 30px;
+    font-size: 10pt;
+    }
+
+
+    #elements{
+      width: 50%;
+      height: 165px;
+      top: 69px !important;
+      left: 21%;
+      
+      
+      }
+
+
+    div#sidebar{
+      margin-top: 57px;
+      width: 20%;
+      height: 420px;
+
+    }
+
+    
+
+    .cartao-img{
+      width:50%;
+      height: 40px;
+    }
+    .itli{
+      font-size: .6rem !important;
+    }
+
+
+    .gerarpt{
+     width: 97%;
+     font-size: 5pt;
+    }
+
+    .resultado{
+      font-size: 10pt;
+      }
+
+    .asd{
+      font-size: 5pt;
+    }  
+     
+}
+ 
+/* Tablet em retrato a paisagem e desktop */
+@media (min-width: 768px) and (max-width: 979px) {
+     /* estilos aqui */
+}
+ 
+/* Desktop grande */
+@media (min-width: 1200px) {
+    /* estilos aqui */
+}
+ 

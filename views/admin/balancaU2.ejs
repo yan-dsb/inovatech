@@ -1,0 +1,103 @@
+<% include ../partials/header %>
+
+
+
+<div class="resultado">
+  <form method="get" action="/balanca">   
+    <div id="divoff">  
+      <div class="input-group col-md-12" style="margin-bottom: 5px;">                 
+        <input class="form-control py-2 border-right-0 border" placeholder="E-mail do cliente" type="search" name="login" id="example-search-input">
+        <span class="input-group-append">
+          <button class="btn btn-outline-secondary border-left-0 border" style="margin-top: 5px;" type="submit">
+            <i class="fa fa-search"></i>
+          </button>
+        </span>
+      </div>
+    </div>
+  </form>
+    
+    <%if (usuario === null) {%>
+    <%} else {%>
+      <% usuario.pessoas.forEach(pessoa => {%>
+      <form method="post" action="/balanca">  
+      <label id="labresult">Cliente:</label>
+      <input readonly class="asd" name="nome" value="<%= pessoa.pesnome %>">
+      <label id="labresult">E-mail:</label>
+      <input readonly class="asd"  name="login" value="<%= usuario.username %>">
+      <label id="labresult">Pontos Atuais:</label>
+      <input readonly class="asd"  name ="pontos" value="<%= usuario.usupontos  %>">
+      <input readonly class="asd" type="hidden"  name ="usuarioFunc" value="<%= currentuser.username%>">
+      <label id="labresult">Pontos Gerados:</label>
+      <input id="ponto" readonly name="balanca[baltotalpontos]" class="asd"  value="0">
+      <input id="flexpeso" type="hidden" name="balanca[baltotalpeso]" readonly class="asd"  value="0">
+      <button  type="submit" value="Submit" class="botao btn gerarpt" style="margin-bottom: 5px; padding: .2rem .75rem;">Gerar Pontos</button>
+      </form>  
+    <% }) %>
+      
+    <%}  %>
+   
+  </div>
+</div>
+    
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div id="sidebar">    
+  <% produto.forEach(produto => {%>
+  <div class="cartao">
+    <img class="cartao-img" src="<%= produto.imagemURL%>" alt="Card image cap">
+      <ul class="list-group">
+      <li class="itli text-center" style="font-size: .8rem"><%= produto.nome%></li>
+      <li class="itli text-center" style="font-size: .8rem"><%= produto.peso%>KG</li>
+      <div class="d-flex justify-content-center">
+        <button class="btn botao-menor" onclick="addelement('<%= produto.imagemURL%>',<%= produto.peso%>)">ADICIONAR</button>
+      </div>
+      
+    </ul>
+  </div>
+  <%}); %>
+</div>
+
+
+<div id="elements">
+
+</div>
+
+<div id="balanca">
+<div id="pesagem"></div>
+<div id="suporte">-</div>
+<div id="suporte">-</div>
+<div id="valor">
+<div id="flex">0.00Kg </div>
+</div>
+<div id="pe"></div>
+<div id="pe"></div>
+</div>
+
+<%include ../partials/footer %>
